@@ -2,7 +2,7 @@
   "name": "ecohub",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/SerdarOwezmyradow/ecohub",
+  "homepage": "https://SerdarOwezmyradow.github.io/ecohub/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
