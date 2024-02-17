@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/SerdarOwezmyradow/ecohub/static/css/main.b5ee9e83.css",
+    "main.js": "/SerdarOwezmyradow/ecohub/static/js/main.a9203800.js",
+    "static/media/gallery1.png": "/SerdarOwezmyradow/ecohub/static/media/gallery1.0c14fbf7e0f6b2518b3a.png",
+    "static/media/header.png": "/SerdarOwezmyradow/ecohub/static/media/header.c41beb631b9fce708be7.png",
+    "static/media/header1.png": "/SerdarOwezmyradow/ecohub/static/media/header1.2c2d18923545fcf60390.png",
+    "static/media/gallery2.png": "/SerdarOwezmyradow/ecohub/static/media/gallery2.75c183cc2c02bd75bdbc.png",
+    "static/media/about3.png": "/SerdarOwezmyradow/ecohub/static/media/about3.d54a68845616b8ebaa26.png",
+    "static/media/about2.png": "/SerdarOwezmyradow/ecohub/static/media/about2.652dfd35877fda356deb.png",
+    "static/media/gallery.png": "/SerdarOwezmyradow/ecohub/static/media/gallery.76673e3f791e312cfe92.png",
+    "static/media/about1.png": "/SerdarOwezmyradow/ecohub/static/media/about1.dd2f58984480438b9dc1.png",
+    "static/media/header2.png": "/SerdarOwezmyradow/ecohub/static/media/header2.aec75cad154840e8f851.png",
+    "static/media/about.png": "/SerdarOwezmyradow/ecohub/static/media/about.d04741c3cbda5cd48cf3.png",
+    "index.html": "/SerdarOwezmyradow/ecohub/index.html",
+    "main.b5ee9e83.css.map": "/SerdarOwezmyradow/ecohub/static/css/main.b5ee9e83.css.map",
+    "main.a9203800.js.map": "/SerdarOwezmyradow/ecohub/static/js/main.a9203800.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b5ee9e83.css",
+    "static/js/main.a9203800.js"
+  ]
+}
