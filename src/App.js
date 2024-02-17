@@ -7,6 +7,9 @@ import gallery from "./images/gallery.png"
 import gallery1 from "./images/gallery1.png"
 import gallery2 from "./images/gallery2.png"
 import About from "./About";
+import Product from "./components/Product";
+import Courses from "./pages/Courses";
+import RecentBlogs from "./pages/RecentBlogs";
 
 function App() {
   return (
@@ -57,7 +60,8 @@ function App() {
       </div>
     </div>
     <About/>
-    
+    <Courses/>
+    <RecentBlogs/>
     </>
   );
 }

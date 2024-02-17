@@ -7,7 +7,8 @@ module.exports = {
         primary: '#023E09',
         secondary: '#4D1F2C',
         primaryText:'#AAE119',
-        secondaryText:'#FF578F'
+        secondaryText:'#FF578F',
+        disabledtext:'#B3B3B3',
       },
     },
   },
