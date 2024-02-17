@@ -10,6 +10,8 @@ import About from "./About";
 import Product from "./components/Product";
 import Courses from "./pages/Courses";
 import RecentBlogs from "./pages/RecentBlogs";
+import Sponsors from "./pages/Sponsors";
+import Footer from "./pages/Footer";
 
 function App() {
   return (
@@ -19,11 +21,11 @@ function App() {
       <header className="text-white absolute top-0 left-0 w-full py-3 ">
         <Navbar />
       </header>
-      <div className="absolute w-[35vw] right-[35%] top-0">
-        <img src={header} />
+      <div className="absolute right-[35%] top-0">
+        <img className="w-[35vw] xl:w-[20vw] " src={header} />
       </div>
-      <div className="absolute w-[15vw] right-0 bottom-0">
-        <img src={header1} />
+      <div className="absolute  right-0 bottom-0">
+        <img className="w-[15vw] xl:w-[10vw]" src={header1} />
       </div>
       <div className="flex h-[100%] container items-center  content-center">
         <div className="flex flex-col justify-between">
@@ -40,7 +42,7 @@ function App() {
         <div class="grid ms-auto   gap-4">
           <div className="flex relative items-end gap-3">
             <div>
-              <img className="h-auto max-w-full w-[25vw] rounded-lg" src={gallery1} alt="" />
+              <img className="h-auto max-w-full w-[15vw] lg:w-[25vw] cs:w-[25vw] xl:w-[15vw] rounded-lg" src={gallery1} alt="" />
             </div>
             <div className="absolute -bottom-20 w-[15vw] -left-4 ">
               <img src={header2} />
@@ -50,11 +52,11 @@ function App() {
             </div>
 
             <div>
-              <img className="h-auto w-[15vw]  rounded-lg" src={gallery2} alt="" />
+              <img className="h-auto w-[15vw]  lg:w-[15vw] cs:w-[15vw] xl:w-[10vw]  rounded-lg" src={gallery2} alt="" />
             </div>
           </div>
           <div>
-            <img className="h-auto ms-24 w-[20vw]  rounded-lg" src={gallery} alt="" />
+            <img className="h-auto ms-24 w-[20vw]   lg:w-[20vw] cs:w-[20vw] xl:w-[15vw]  rounded-lg" src={gallery} alt="" />
           </div>
         </div>
       </div>
@@ -62,6 +64,8 @@ function App() {
     <About/>
     <Courses/>
     <RecentBlogs/>
+    <Sponsors/>
+    <Footer/>
     </>
   );
 }

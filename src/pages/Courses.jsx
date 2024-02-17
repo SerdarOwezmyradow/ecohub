@@ -3,7 +3,7 @@ import Product from '../components/Product'
 
 function Courses() {
     return (
-        <div className='container'>
+        <div className='container mt-20 '>
             <div className='flex items-center mb-4'>
                 <h1 className='font-bold text-[30px]'>Highlighted Courses</h1>
                 <div className='p-2 cursor-pointer ms-2 bg-[#E6E6E6] rounded-full'>
@@ -12,7 +12,7 @@ function Courses() {
                     </svg>
                 </div>
             </div>
-            <div className="grid grid-cols-4 gap-4 ">
+            <div className="grid lg:grid-cols-4 cs:grid-cols-4 xl:grid-cols-5 gap-4 ">
                 <Product />
                 <Product />
                 <Product />

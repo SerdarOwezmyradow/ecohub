@@ -7,17 +7,17 @@ import about3 from "./images/about3.png"
 function About() {
     return (
         <div className='container relative h-[90vh] border-2 w-[100%] border my-10 border-primaryText rounded-xl overflow-hidden '>
-            <div className="absolute w-[25vw] left-0 top-0">
-                <img src={about} />
+            <div className="absolute  left-0 top-0">
+                <img className='w-[15vw] lg:w-[25vw] cs:w-[25vw] xl:w-[15vw]' src={about} />
             </div>
-            <div className="absolute w-[25vw] right-0 top-0">
-                <img src={about1} />
+            <div className="absolute  right-0 top-0">
+                <img className='w-[15vw] lg:w-[25vw] cs:w-[25vw] xl:w-[15vw]' src={about1} />
             </div>
-            <div className="absolute w-[25vw] left-0 bottom-0">
-                <img src={about2} />
+            <div className="absolute  left-0 bottom-0">
+                <img className='w-[15vw] lg:w-[25vw] cs:w-[25vw] xl:w-[15vw]' src={about2} />
             </div>
-            <div className="absolute w-[25vw] right-0 bottom-0">
-                <img src={about3} />
+            <div className="absolute  right-0 bottom-0">
+                <img className='w-[15vw] lg:w-[25vw] cs:w-[25vw] xl:w-[15vw]' src={about3} />
             </div>
 
             <div className="text-center flex justify-center gap-4 h-full items-center flex-col">
