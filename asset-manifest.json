@@ -1,8 +1,11 @@
 {
   "files": {
-    "main.css": "/ecohub/static/css/main.5477aa41.css",
-    "main.js": "/ecohub/static/js/main.a5250859.js",
+    "main.css": "/ecohub/static/css/main.c13fc909.css",
+    "main.js": "/ecohub/static/js/main.e02d5342.js",
+    "static/media/footer.png": "/ecohub/static/media/footer.55762b19ee68da294d96.png",
     "static/media/gallery1.png": "/ecohub/static/media/gallery1.0c14fbf7e0f6b2518b3a.png",
+    "static/media/contact.png": "/ecohub/static/media/contact.52e0473f0adb3e0cf64c.png",
+    "static/media/contact1.png": "/ecohub/static/media/contact1.60e82322b936c2c33ace.png",
     "static/media/header.png": "/ecohub/static/media/header.c41beb631b9fce708be7.png",
     "static/media/header1.png": "/ecohub/static/media/header1.2c2d18923545fcf60390.png",
     "static/media/gallery2.png": "/ecohub/static/media/gallery2.75c183cc2c02bd75bdbc.png",
@@ -10,15 +13,17 @@
     "static/media/product.png": "/ecohub/static/media/product.42b0bec7fd985e1a4ca3.png",
     "static/media/about2.png": "/ecohub/static/media/about2.652dfd35877fda356deb.png",
     "static/media/gallery.png": "/ecohub/static/media/gallery.76673e3f791e312cfe92.png",
+    "static/media/contact3.png": "/ecohub/static/media/contact3.4db33e98033a275ac0e1.png",
     "static/media/about1.png": "/ecohub/static/media/about1.dd2f58984480438b9dc1.png",
+    "static/media/contact2.png": "/ecohub/static/media/contact2.a5fb4f0ad36dbc4ca63e.png",
     "static/media/header2.png": "/ecohub/static/media/header2.aec75cad154840e8f851.png",
     "static/media/about.png": "/ecohub/static/media/about.d04741c3cbda5cd48cf3.png",
     "index.html": "/ecohub/index.html",
-    "main.5477aa41.css.map": "/ecohub/static/css/main.5477aa41.css.map",
-    "main.a5250859.js.map": "/ecohub/static/js/main.a5250859.js.map"
+    "main.c13fc909.css.map": "/ecohub/static/css/main.c13fc909.css.map",
+    "main.e02d5342.js.map": "/ecohub/static/js/main.e02d5342.js.map"
   },
   "entrypoints": [
-    "static/css/main.5477aa41.css",
-    "static/js/main.a5250859.js"
+    "static/css/main.c13fc909.css",
+    "static/js/main.e02d5342.js"
   ]
 }
