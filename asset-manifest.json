@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ecohub/static/css/main.c13fc909.css",
-    "main.js": "/ecohub/static/js/main.e02d5342.js",
+    "main.js": "/ecohub/static/js/main.9d927d5c.js",
     "static/media/footer.png": "/ecohub/static/media/footer.55762b19ee68da294d96.png",
     "static/media/gallery1.png": "/ecohub/static/media/gallery1.0c14fbf7e0f6b2518b3a.png",
     "static/media/contact.png": "/ecohub/static/media/contact.52e0473f0adb3e0cf64c.png",
@@ -20,10 +20,10 @@
     "static/media/about.png": "/ecohub/static/media/about.d04741c3cbda5cd48cf3.png",
     "index.html": "/ecohub/index.html",
     "main.c13fc909.css.map": "/ecohub/static/css/main.c13fc909.css.map",
-    "main.e02d5342.js.map": "/ecohub/static/js/main.e02d5342.js.map"
+    "main.9d927d5c.js.map": "/ecohub/static/js/main.9d927d5c.js.map"
   },
   "entrypoints": [
     "static/css/main.c13fc909.css",
-    "static/js/main.e02d5342.js"
+    "static/js/main.9d927d5c.js"
   ]
 }
