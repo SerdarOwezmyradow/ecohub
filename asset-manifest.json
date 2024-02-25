@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/ecohub/static/css/main.8b680ed8.css",
-    "main.js": "/ecohub/static/js/main.7bace8a8.js",
+    "main.css": "/ecohub/static/css/main.4cca02f6.css",
+    "main.js": "/ecohub/static/js/main.326ea4cc.js",
     "static/media/news.png": "/ecohub/static/media/news.718bff33f087ed6942aa.png",
     "static/media/ashgabat.png": "/ecohub/static/media/ashgabat.139c442c69294f2d6a36.png",
     "static/media/multimedia.png": "/ecohub/static/media/multimedia.80612cad3374eb4d22d5.png",
     "static/media/gallery.png": "/ecohub/static/media/gallery.12618d01ba959ded74ea.png",
     "index.html": "/ecohub/index.html",
-    "main.8b680ed8.css.map": "/ecohub/static/css/main.8b680ed8.css.map",
-    "main.7bace8a8.js.map": "/ecohub/static/js/main.7bace8a8.js.map"
+    "main.4cca02f6.css.map": "/ecohub/static/css/main.4cca02f6.css.map",
+    "main.326ea4cc.js.map": "/ecohub/static/js/main.326ea4cc.js.map"
   },
   "entrypoints": [
-    "static/css/main.8b680ed8.css",
-    "static/js/main.7bace8a8.js"
+    "static/css/main.4cca02f6.css",
+    "static/js/main.326ea4cc.js"
   ]
 }
