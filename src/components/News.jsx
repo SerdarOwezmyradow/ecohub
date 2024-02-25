@@ -2,6 +2,7 @@ import React from 'react'
 import Divider from './Divider'
 import image from '../images/news.png'
 import Product from './Product'
+import { NavLink } from 'react-router-dom'
 
 function News() {
     return (
@@ -12,44 +13,44 @@ function News() {
             </div>
 
             <div className='flex aspect-[9/4] p-0  w-full mt-10 items-center'>
-                <div className='w-1/3 pe-3 snap-mandatory snap-y overflow-y-scroll h-full'>
-                    <div className='h-1/4 border-b snap-center relative w-full'>
+                <div className='w-1/3 pe-3 snap-mandatory snap-y  snap-y overflow-y-scroll h-full'>
+                    <div className='h-1/4 border-b snap-start relative w-full'>
                         <div className='font-semibold text-md'>Bilim ulgamynyň kanunçylyk binýady – ýaş nesliň üstünlikli ösmeginiň girewi</div>
                         <div className="absolute font-semibold bottom-2 text-goldColor left-0">
                             01.02.24
                         </div>
                     </div>
-                    <div className='h-1/4 border-b snap-center relative w-full'>
+                    <div className='h-1/4 border-b snap-start relative w-full'>
                         <div className='font-semibold text-md'>Bilim ulgamynyň kanunçylyk binýady – ýaş nesliň üstünlikli ösmeginiň girewi</div>
                         <div className="absolute font-semibold bottom-2 text-goldColor left-0">
                             01.02.24
                         </div>
                     </div>
-                    <div className='h-1/4 border-b snap-center relative w-full'>
+                    <div className='h-1/4 border-b snap-start relative w-full'>
                         <div className='font-semibold text-md'>Bilim ulgamynyň kanunçylyk binýady – ýaş nesliň üstünlikli ösmeginiň girewi</div>
                         <div className="absolute font-semibold bottom-2 text-goldColor left-0">
                             01.02.24
                         </div>
                     </div>
-                    <div className='h-1/4 border-b snap-center relative w-full'>
+                    <div className='h-1/4 border-b snap-start relative w-full'>
                         <div className='font-semibold text-md'>Bilim ulgamynyň kanunçylyk binýady – ýaş nesliň üstünlikli ösmeginiň girewi</div>
                         <div className="absolute font-semibold bottom-2 text-goldColor left-0">
                             01.02.24
                         </div>
                     </div>
-                    <div className='h-1/4 border-b snap-center relative w-full'>
+                    <div className='h-1/4 border-b snap-start relative w-full'>
                         <div className='font-semibold text-md'>Bilim ulgamynyň kanunçylyk binýady – ýaş nesliň üstünlikli ösmeginiň girewi</div>
                         <div className="absolute font-semibold bottom-2 text-goldColor left-0">
                             01.02.24
                         </div>
                     </div>
-                    <div className='h-1/4 border-b snap-center relative w-full'>
+                    <div className='h-1/4 border-b snap-start relative w-full'>
                         <div className='font-semibold text-md'>Bilim ulgamynyň kanunçylyk binýady – ýaş nesliň üstünlikli ösmeginiň girewi</div>
                         <div className="absolute font-semibold bottom-2 text-goldColor left-0">
                             01.02.24
                         </div>
                     </div>
-                    <div className='h-1/4 border-b snap-center relative w-full'>
+                    <div className='h-1/4 border-b snap-start relative w-full'>
                         <div className='font-semibold text-md'>Bilim ulgamynyň kanunçylyk binýady – ýaş nesliň üstünlikli ösmeginiň girewi</div>
                         <div className="absolute font-semibold bottom-2 text-goldColor left-0">
                             01.02.24
@@ -58,7 +59,7 @@ function News() {
 
                 </div>
                 <div className='w-2/3 h-full relative '>
-                    <img src={image} className='w-full h-full object-cover' alt="" />
+                    <img src={image} className='w-full transition duration-150 ease-in-out hover:scale-300 h-full object-cover' alt="" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-50"></div>
                     <div className='absolute bottom-3 left-3 bg-black text-white p-5 w-1/2 bg-opacity-75 '>
                         Bilim ulgamynyň kanunçylyk binýady  –  <br /> Ýaş nesliň üstünlikli ösmeginiň girewi
@@ -75,7 +76,7 @@ function News() {
 
             <div className='flex mt-20 gap-5 '>
                 <Divider showleft={true}/>
-                <button className='bg-goldColor px-5 p-3 text-white text-nowrap'>Doly Gör</button>
+                <NavLink to={`/news`} className='bg-goldColor px-5 p-3 text-white text-nowrap'>Doly Gör</NavLink>
                 <Divider showright={true}/>
             </div>
         </div>

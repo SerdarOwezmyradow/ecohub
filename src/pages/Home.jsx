@@ -16,7 +16,6 @@ import Gallery from '../components/Gallery';
 function Home() {
     return (
         <div className=''>
-            <Navbar/>
             <MainSlider/>
             <News/>
             <Categories/>
@@ -26,7 +25,6 @@ function Home() {
             {/* <About /> */}
             {/* <Courses /> */}
             {/* <RecentBlogs/> */}
-            <Footer />
         </div>
     )
 }
