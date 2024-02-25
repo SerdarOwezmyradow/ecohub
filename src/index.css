@@ -11,6 +11,10 @@ body {
     /* height: 200vh; */
 }
 
+.parent_image:hover .imageee{
+    transition: .3s;
+    transform: scale(1.1);
+}
 ::-webkit-scrollbar {
     width: 8px;
 }

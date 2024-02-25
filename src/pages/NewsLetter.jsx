@@ -1,12 +1,11 @@
 import React from 'react'
-// import Divider from './Divider'
 import image from '../images/news.png'
 import Divider from '../components/Divider'
 import Product from '../components/Product'
 import { NavLink } from 'react-router-dom'
+import SingleNewsletter from '../components/SingleNewsletter'
 
-// import Product from './Product'
-function NewsPage() {
+function NewsLetter() {
     return (
         <div>
             <div className='container '>
@@ -15,10 +14,10 @@ function NewsPage() {
                     <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
                         <path d="M1 1L7 7.5L1 14" stroke="#CFCFCF" stroke-width="1.5" />
                     </svg>
-                    <div className=' text-[#CFCFCF]'>Habarlar</div>
+                    <div className=' text-[#CFCFCF]'>Makalalar</div>
                 </div>
                 <div className='flex justify-center items-end w-full '>
-                    <div className='w-1/4 p-0 m-0 inline-block align-middle text-darkColor font-semibold text-[30px] '>Täzelikler</div>
+                    <div className='w-1/4 p-0 m-0 inline-block align-middle text-darkColor font-semibold text-[30px] '>Makalalar</div>
                     <Divider className='w-3/4' showright={true} />
                 </div>
 
@@ -70,7 +69,7 @@ function NewsPage() {
                     </div>
                     <div className='w-2/3 h-full parent_image overflow-hidden relative '>
                         <img src={image} className='w-full imageee transition duration-150 ease-in-out hover:scale-300 h-full object-cover' alt="" />
-                        <div className="absolute parent_image  inset-0 bg-gradient-to-t from-black to-transparent opacity-50"></div>
+                        <div className="absolute parent_image inset-0 bg-gradient-to-t from-black to-transparent opacity-50"></div>
                         <div className='absolute bottom-3 left-3 bg-black text-white p-5 w-1/2 bg-opacity-75 '>
                             Bilim ulgamynyň kanunçylyk binýady  –  <br /> Ýaş nesliň üstünlikli ösmeginiň girewi
                         </div>
@@ -78,16 +77,17 @@ function NewsPage() {
 
                 </div>
 
-                <div className="grid grid-cols-4 mt-5 gap-3">
-                    <Product />
-                    <Product />
-                    <Product />
-                    <Product />
-                    <Product />
-                    <Product />
-                    <Product />
-                    <Product />
-                    <Product />
+                <div className="grid grid-cols-3 mt-20 gap-3">
+                    <SingleNewsletter />
+                    <SingleNewsletter />
+                    <SingleNewsletter />
+                    <SingleNewsletter />
+                    <SingleNewsletter />
+                    <SingleNewsletter />
+                    <SingleNewsletter />
+                    <SingleNewsletter />
+                    <SingleNewsletter />
+                    
                 </div>
 
                 {/* <div className='flex mt-20 gap-5 '>
@@ -100,4 +100,4 @@ function NewsPage() {
     )
 }
 
-export default NewsPage
+export default NewsLetter

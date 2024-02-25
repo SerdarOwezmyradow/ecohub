@@ -1,5 +1,6 @@
 import React from 'react'
 import SingleNewsletter from './SingleNewsletter'
+import { NavLink } from 'react-router-dom'
 
 function Newsletters() {
     return (
@@ -7,7 +8,7 @@ function Newsletters() {
             <div className="flex font-semibold items-center justify-between w-full">
                 <div className='text-[30px]'>Makalalar</div>
                 <div className='flex text-[#BEBEBE] cursor-pointer items-center gap-2'>
-                    <span className='p-0 text-sm '>Doly gör</span>
+                    <NavLink to={'/newsletter'} className='p-0 text-sm '>Doly gör</NavLink>
                     <svg xmlns="http://www.w3.org/2000/svg" width="6" height="12" viewBox="0 0 6 10" fill="none">
                         <path d="M1 1L4 5L1 9" stroke="#C5C5C5" stroke-width="2" />
                     </svg>

@@ -58,9 +58,9 @@ function News() {
                     </div>
 
                 </div>
-                <div className='w-2/3 h-full relative '>
-                    <img src={image} className='w-full transition duration-150 ease-in-out hover:scale-300 h-full object-cover' alt="" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-50"></div>
+                <div className='w-2/3 parent_image h-full overflow-hidden relative '>
+                    <img src={image} className='w-full imageee transition-transform duration-300 transform hover:scale-110  h-full object-cover' alt="" />
+                    <div className="absolute parent_image inset-0 bg-gradient-to-t from-black to-transparent opacity-50"></div>
                     <div className='absolute bottom-3 left-3 bg-black text-white p-5 w-1/2 bg-opacity-75 '>
                         Bilim ulgamynyň kanunçylyk binýady  –  <br /> Ýaş nesliň üstünlikli ösmeginiň girewi
                     </div>
