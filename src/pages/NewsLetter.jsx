@@ -21,7 +21,7 @@ function NewsLetter() {
                     <Divider className='w-3/4' showright={true} />
                 </div>
 
-                <div className='flex aspect-[9/4] p-0  w-full mt-10 items-center'>
+                {/* <div className='flex aspect-[9/4] p-0  w-full mt-10 items-center'>
                     <div className='w-1/3 pe-3 snap-mandatory snap-y  snap-y overflow-y-scroll h-full'>
                         <div className='h-1/4 border-b snap-start relative w-full'>
                             <div className='font-semibold text-md'>Bilim ulgamynyň kanunçylyk binýady – ýaş nesliň üstünlikli ösmeginiň girewi</div>
@@ -75,7 +75,7 @@ function NewsLetter() {
                         </div>
                     </div>
 
-                </div>
+                </div> */}
 
                 <div className="grid grid-cols-3 mt-20 gap-3">
                     <SingleNewsletter />

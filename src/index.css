@@ -3,7 +3,10 @@
 @tailwind utilities;
 
 .container {
-    @apply mx-auto w-[90vw]
+    @apply mx-auto w-[10/14]
+}
+.component {
+    @apply mx-auto w-[8/12]
 }
 
 body {
@@ -14,6 +17,7 @@ body {
 .parent_image:hover .imageee{
     transition: .3s;
     transform: scale(1.1);
+    
 }
 ::-webkit-scrollbar {
     width: 8px;
