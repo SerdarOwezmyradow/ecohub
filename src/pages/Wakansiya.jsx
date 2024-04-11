@@ -14,7 +14,7 @@ function Wakansiya() {
             <div className="w-1/2 mx-auto">
                 <div className='text-[30px] my-10'>Wakansiyalar</div>
                 <div className="flex flex-col gap-3">
-                    <NavLink className={`flex group bg-[#FAFAFA] p-3 justify-between items-center`} to={`/wakansy/detail`}>
+                    <NavLink className={`flex group bg-[#FAFAFA] p-3 justify-between items-center`} to={`/vacansy/detail`}>
 
                         <div className='w-full  cursor-pointer  flex flex-col gap-3 mx-auto text-darkColor font-semibold'>
                             <div className='group-hover:text-goldColor'>Ýaş Telekeçiler Gözlenilýär</div>
