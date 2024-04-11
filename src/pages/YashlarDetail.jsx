@@ -18,9 +18,9 @@ function YashlarDetail() {
             <div className='w-1/2  mx-auto'>
                 <div className='text-[30px] text-darkColor font-semibold my-10'>Category name</div>
                 <div className='w-full flex flex-col gap-3'>
-                    <div className=' bg-[#FAFAFA] w-full cursor-pointer font-semibold p-3  mx-auto text-darkColor'>hello </div>
-                    <div className=' bg-[#FAFAFA] w-full cursor-pointer font-semibold p-3  mx-auto text-darkColor'>hello </div>
-                    <div className=' bg-[#FAFAFA] w-full cursor-pointer font-semibold p-3  mx-auto text-darkColor'>hello </div>
+                    <NavLink to={`/topic`} className=' bg-[#FAFAFA] w-full cursor-pointer font-semibold p-3  mx-auto text-darkColor'>hello </NavLink>
+                    <NavLink to={`/topic`} className=' bg-[#FAFAFA] w-full cursor-pointer font-semibold p-3  mx-auto text-darkColor'>hello </NavLink>
+                    <NavLink to={`/topic`} className=' bg-[#FAFAFA] w-full cursor-pointer font-semibold p-3  mx-auto text-darkColor'>hello </NavLink>
                 </div>
             </div>
 

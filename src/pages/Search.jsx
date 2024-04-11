@@ -2,8 +2,8 @@ import React from 'react'
 
 function Search() {
     return (
-        <div className='w-full'>
-            <div className='w-[60vw] mx-auto text-[#CDCDCD]'>
+        <div className='container'>
+            <div className='w-8/12 mx-auto text-[#CDCDCD]'>
                 <div className='flex justify-center p-3 mt-10 border-b border-[#CDCDCD] text-[#CDCDCD] items-center h-[auto] w-full'>
                     <input type="text" placeholder='Search here ' className='w-full outline-none border-0 text-xl ' />
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">

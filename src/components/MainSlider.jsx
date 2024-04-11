@@ -11,7 +11,7 @@ function MainSlider() {
     // SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
     return (
         <div className='  mx-auto'>
-            <div className=' flex justify-center items-center mx-auto  pt-10'>
+            <div className='max-w-[1900px] flex justify-center items-center mx-auto  pt-10'>
             <button className="custom-prev-button w-[5vw] flex mx-auto justify-center items-center  ">
                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="32" viewBox="0 0 15 32" fill="none">
                         <path d="M13.5001 0.999999L1.00006 16L13.5001 31" stroke="#D3AA65" stroke-width="1.5" />

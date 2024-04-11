@@ -23,7 +23,7 @@ function Multimedia() {
 
 
             </div>
-            <div className="flex justify-between  items-center">
+            <div className="flex justify-between max-w-[1900px] mx-auto  items-center">
                 <button className="custom-prev-buttone w-[5vw] flex mx-auto justify-center items-center  ">
                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="32" viewBox="0 0 15 32" fill="none">
                         <path d="M13.5001 0.999999L1.00006 16L13.5001 31" stroke="#D3AA65" stroke-width="1.5" />

@@ -12,6 +12,8 @@ import YashlarDetail from "./pages/YashlarDetail";
 import TopicDetail from "./pages/TopicDetail";
 import Wakansiya from "./pages/Wakansiya";
 import Questions from "./pages/Questions";
+import Map from "./components/Map";
+import AnotherMap from "./components/Anothermap";
 import { useEffect } from "react";
 // import ScrollToTopOnRouteChange from "./components/ScrollToTopOnRouteChange";
 
@@ -51,10 +53,12 @@ function App() {
             <Route path="/search" element={<Search />} />
             <Route path="/yaslar" element={<YashlarBarada />} />
             <Route path="/yaslar/detail" element={<YashlarDetail />} />
-            <Route path="/wakansy" element={<Wakansiya />} />
-            <Route path="/wakansy/detail" element={<TopicDetail show={true} />} />
+            <Route path="/vacansy" element={<Wakansiya />} />
+            <Route path="/vacansy/detail" element={<TopicDetail show={true} />} />
             <Route path="/topic" element={<TopicDetail />} />
             <Route path="/questions" element={<Questions />} />
+            <Route path="/map" element={<Map />} />
+            {/* <Route path="/map1" element={<AnotherMap />} /> */}
 
             {/* <Home /> */}
             {/* <NewsPage /> */}

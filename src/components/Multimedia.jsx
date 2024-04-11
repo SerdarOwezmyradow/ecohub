@@ -13,7 +13,7 @@ import 'swiper/css/scrollbar';
 
 function Multimedia() {
     return (
-        <div className='  mx'>
+        <div className='  mx-auto'>
 
             <div className='container mt-20'>
                 <div className='flex justify-center items-end w-full '>
@@ -21,7 +21,7 @@ function Multimedia() {
                     <Divider className='w-3/4' showright={true} />
                 </div>
             </div>
-            <div className="flex justify-between  w-full  items-center">
+            <div className="flex justify-between max-w-[1900px] mx-auto w-full  items-center">
                 <button className="custom-prev-buttona w-[5vw] flex mx-auto justify-center items-center  ">
                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="32" viewBox="0 0 15 32" fill="none">
                         <path d="M13.5001 0.999999L1.00006 16L13.5001 31" stroke="#D3AA65" stroke-width="1.5" />
