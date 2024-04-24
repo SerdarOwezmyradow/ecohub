@@ -1,28 +1,68 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 // import Divider from './Divider'
 import image from '../images/news.png'
 import Divider from '../components/Divider'
 import Product from '../components/Product'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Route, useParams } from 'react-router-dom'
+import axiosInstance from '../axios'
+import { useTranslation } from 'react-i18next'
 
 // import Product from './Product'
 function NewsPage() {
+
+    const { t, i18n } = useTranslation();
+    const { id } = useParams()
+    const [cats, setCats] = useState(null)
+
+
+    const baseUrl = `http://216.250.11.159/`
+    const getCats = async () => {
+        try {
+            // isLoading(true)
+            let response
+            if (id) {
+                response = await axiosInstance.get(`${baseUrl}api/category/${id}`);
+            } else {
+                response = await axiosInstance.get(`${baseUrl}api/category/3`);
+            }
+
+            console.log('news response', response.data);
+            setCats(response?.data)
+            // isLoading(false)
+
+        } catch (error) {
+            console.error('Error fetching categories:', error);
+        }
+    }
+    useEffect(() => {
+        getCats()
+    }, [i18n.language, id])
+
     return (
         <div>
             <div className='container '>
                 <div className='flex items-center my-10 gap-3'>
-                    <NavLink to={`/ecohub/`} className=' text-[#CFCFCF] cursor-pointer'>Baş sahypa</NavLink>
+                    <NavLink to={`/`} className=' text-[#CFCFCF] cursor-pointer'>Baş sahypa</NavLink>
                     <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
                         <path d="M1 1L7 7.5L1 14" stroke="#CFCFCF" stroke-width="1.5" />
                     </svg>
-                    <div className=' text-[#CFCFCF]'>Habarlar</div>
+                    {id ?
+                        <NavLink to={'/news'} className=' text-[#CFCFCF]'>Habarlar</NavLink>
+                        :
+                        <div className=' text-[#CFCFCF]'>Habarlar</div>
+                    }
+                    {/* {id &&
+                        <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
+                            <path d="M1 1L7 7.5L1 14" stroke="#CFCFCF" stroke-width="1.5" />
+                        </svg>    
+                     } */}
                 </div>
                 <div className='flex justify-center items-end w-full '>
                     <div className='w-1/4 p-0 m-0 inline-block align-middle text-darkColor font-semibold text-[30px] '>Täzelikler</div>
                     <Divider className='w-3/4' showright={true} />
                 </div>
 
-                <div className='flex aspect-[9/4] p-0  w-full mt-10 items-center'>
+                {/* <div className='flex aspect-[9/4] p-0  w-full mt-10 items-center'>
                     <div className='w-1/3 pe-3 snap-mandatory snap-y  snap-y overflow-y-scroll h-full'>
                         <div className='h-1/4 border-b snap-start relative w-full'>
                             <div className='font-semibold text-md'>Bilim ulgamynyň kanunçylyk binýady – ýaş nesliň üstünlikli ösmeginiň girewi</div>
@@ -76,19 +116,30 @@ function NewsPage() {
                         </div>
                     </div>
 
-                </div>
+                </div> */}
+                {cats?.length > 0 ?
+                    <div className="grid grid-cols-4 mt-5 gap-3">
 
-                <div className="grid grid-cols-4 mt-5 gap-3">
-                    <Product />
-                    <Product />
-                    <Product />
-                    <Product />
-                    <Product />
-                    <Product />
-                    <Product />
-                    <Product />
-                    <Product />
-                </div>
+                        {cats?.map((cat) => {
+                            return (
+                                <>
+                                    <NavLink to={`/topic/${cat.id}`} key={cat.id}>
+
+                                        {/* <div>{cat?.title}</div> */}
+                                        <Product id={cat.id} image={`${baseUrl}/storage/upload/post/images/${cat?.image}`} title={cat.title} date={cat.date} />
+                                    </NavLink>
+                                </>
+                            )
+                        })}
+                    </div>
+                    :
+                    <div className='flex justify-center items-center flex-col'>
+                        <div className='mt-20 font-semibold text-center'>No topics found</div>
+                        <NavLink to={'/news'} className='text-center mt-10 text-white bg-primaryColor px-4 py-2 '>All news</NavLink>
+                    </div>
+                }
+
+                {/* {JSON.stringify(cats)} */}
 
                 {/* <div className='flex mt-20 gap-5 '>
                     <Divider showleft={true} />

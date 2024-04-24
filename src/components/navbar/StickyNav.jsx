@@ -47,6 +47,7 @@ function StickyNav() {
         setSelectedOption(event.target.value);
         i18n.changeLanguage(event.target.value)
         getCats()
+        console.log(i18n.language);
     };
 
     useEffect(() => {
@@ -100,32 +101,64 @@ function StickyNav() {
                                 < ul className='flex justify-between  items-center group gap-4 font-semibold'>
                                     {
                                         Cats?.map((cat) => {
-                                            return (
-                                                <>
-                                                    <li className='cursor-pointer xl:text-xl' value={cat?.label} onMouseEnter={() => ContentOnHover(cat)} >
-                                                        <div>
-                                                            {cat?.label}
-                                                        </div>
+                                            if (cat?.children?.length > 0) {
+                                                if (cat?.type === 'oportunities') {
+                                                    return (
+                                                        <NavLink to={`/yaslar`} className='cursor-pointer hover:bg-white p-1 hover:text-primaryColor text-nowrap xl:text-xl' key={cat.id} value={cat?.label} onMouseEnter={() => ContentOnHover(cat)} >
+                                                            <div>
+                                                                {cat?.label}
+                                                            </div>
 
-                                                    </li>
-                                                </>
-                                            )
+                                                        </NavLink>
+                                                    )
+                                                } else {
+
+                                                    return (
+                                                        <li className='cursor-pointer hover:bg-white p-1 hover:text-primaryColor xl:text-xl text-nowrap' key={cat.id} value={cat?.label} onMouseEnter={() => ContentOnHover(cat)} >
+                                                            <div>
+                                                                {cat?.label}
+                                                            </div>
+
+                                                        </li>
+                                                    )
+                                                }
+                                            } else {
+                                                if (cat?.type === 'newsletter') {
+                                                    return (
+                                                        <NavLink to={`/newsletter`} className='cursor-pointer hover:bg-white p-1 hover:text-primaryColor text-nowrap xl:text-xl' key={cat.id} value={cat?.label} onMouseEnter={() => ContentOnHover(cat)} >
+                                                            <div>
+                                                                {cat?.label}
+                                                            </div>
+
+                                                        </NavLink>
+                                                    )
+                                                }
+                                                else if (cat?.posts_count > 0) {
+                                                    return (
+                                                        <NavLink to={cat?.posts_count > 0 && `/topics/${cat?.id}`} className='cursor-pointer hover:bg-white p-1 hover:text-primaryColor text-nowrap xl:text-xl' key={cat.id} value={cat?.label} onMouseEnter={() => ContentOnHover(cat)} >
+                                                            <div>
+                                                                {cat?.label}
+                                                            </div>
+
+                                                        </NavLink>
+                                                    )
+                                                }
+
+                                            }
+
+
                                         })
 
                                     }
-                                    <li className='cursor-pointer' onMouseEnter={() => setData()} >
-                                        <NavLink to={`/map`}>
-                                            {t('map')}
-                                        </NavLink>
+                                    {/* <NavLink to={`/library`} className='cursor-pointer hover:bg-white p-1 hover:text-primaryColor'>Kitaphana</NavLink> */}
 
-                                    </li>
 
                                 </ul>
                                 : 'loading'}
 
 
                         </div>
-                        <div className='flex   items-center gap-6'>
+                        <div className='flex   items-center gap-4'>
                             <NavLink to={`/search`}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
                                     <path d="M19.1229 17.8666L18.4955 18.494C20.5272 16.4622 21.6686 13.7066 21.6686 10.8333C21.6686 7.96002 20.5272 5.2044 18.4955 3.17263C17.4906 2.16531 16.2967 1.36649 14.9821 0.822027C13.6676 0.277568 12.2583 -0.00179428 10.8355 9.92197e-06C9.41238 -0.00191882 8.00297 0.27737 6.68814 0.82183C5.37331 1.36629 4.179 2.16519 3.17388 3.17263C2.16763 4.17869 1.36946 5.37313 0.824874 6.6877C0.28029 8.00226 0 9.41122 0 10.8341C0 12.257 0.28029 13.666 0.824874 14.9806C1.36946 16.2951 2.16763 17.4896 3.17388 18.4956C4.179 19.5031 5.37331 20.302 6.68814 20.8464C8.00297 21.3909 9.41238 21.6702 10.8355 21.6682C12.2583 21.67 13.6676 21.3907 14.9821 20.8462C16.2967 20.3018 17.4906 19.5029 18.4955 18.4956L17.8681 19.1246L22.7435 24L24 22.7419L19.1229 17.8666ZM17.2375 17.2376C16.3985 18.0811 15.4005 18.7498 14.3014 19.205C13.2022 19.6602 12.0236 19.8929 10.8339 19.8895C9.64418 19.893 8.46559 19.6605 7.36639 19.2053C6.26719 18.75 5.2692 18.0812 4.43033 17.2376C3.58659 16.3987 2.91764 15.4008 2.46215 14.3016C2.00666 13.2025 1.77365 12.0239 1.77671 10.8341C1.77365 9.64434 2.00666 8.46576 2.46215 7.3666C2.91764 6.26745 3.58659 5.26956 4.43033 4.43068C5.2692 3.58702 6.26719 2.91822 7.36639 2.463C8.46559 2.00779 9.64418 1.7752 10.8339 1.77874C12.0236 1.77538 13.2022 2.00803 14.3014 2.46324C15.4005 2.91845 16.3985 3.58717 17.2375 4.43068C18.0807 5.26986 18.7492 6.26785 19.2044 7.36696C19.6596 8.46607 19.8925 9.64449 19.8894 10.8341C19.8925 12.0238 19.6596 13.2022 19.2044 14.3013C18.7492 15.4004 18.0807 16.3984 17.2375 17.2376Z" fill="white" />
@@ -136,10 +169,10 @@ function StickyNav() {
                                 <select
                                     value={selectedOption}
                                     onChange={handleSelectChange}
-                                    className="block appearance-none w-full  text-white bg-transparent border-0  p-3 cursor-pointer rounded leading-tight focus:outline-none focus:shadow-outline"
+                                    className="block appearance-none w-full  text-white bg-transparent border-0  p-1 cursor-pointer rounded leading-tight focus:outline-none focus:shadow-outline"
                                 >
                                     {options.map((option, index) => (
-                                        <option key={index} className={`${selectedOption === option ? 'disabled ' : ''} border-0 text-black rounded-lg p-3 `} value={option}>{option}</option>
+                                        <option key={index} className={`${selectedOption === option ? 'disabled ' : ''} border-0 text-black rounded-lg p-1 `} value={option}>{option}</option>
                                     ))}
                                 </select>
 
@@ -151,12 +184,12 @@ function StickyNav() {
 
                 </div>
                 {/* <div className={`${isVisible ? 'block' : 'hidden'} z-22 absolute top-0 bottom-0 right-0 left-0 h-[100vh] bg-[black] bg-opacity-40`}> */}
-                {data?.children?.length > 0 &&
+                {data?.children?.length > 0 && data?.id !== 4 &&
                     <div onMouseLeave={() => setData()} className={`absolute   w-full p-5 z-20 shadow-lg  group-hover:opacity-1000 bg-white text-black   `}>
-                        <div className='flex items-center container gap-4 flex-wrap' >
+                        <div className='flex items-center container gap-10 flex-wrap' >
                             <div className='cursor-pointer'>
-                                <NavLink to={data?.type === 'news' ? '/news' : 'yaslar'}>
 
+                                <NavLink to={data?.type === 'news' ? '/news' : data?.id === 2 ? `/topic/yaslar/${data?.id}` : `/topics/${data?.id}`}>
                                     {data?.label}
                                 </NavLink>
                             </div>
@@ -176,15 +209,54 @@ function StickyNav() {
 
                                         )
                                     }
-                                    else if (cat.type === 'standart') {
+                                    else if (cat?.id === 17) {
+                                        return (
+                                            <NavLink to={`/project`} className='cursor-pointer'>{cat?.label}</NavLink>
+
+                                        )
+                                    }
+
+                                    else if (cat.type === 'map') {
+                                        return (
+                                            <NavLink to={`/map`} className='cursor-pointer'>{cat?.label}</NavLink>
+
+                                        )
+                                    }
+                                    else if (cat.type === 'oportunities') {
                                         return (
                                             <NavLink to={`/yaslar`} className='cursor-pointer'>{cat?.label}</NavLink>
 
                                         )
                                     }
-                                     else {
+                                    else if (cat.type === 'news') {
                                         return (
-                                            <NavLink  className='cursor-pointer'>{cat?.label}</NavLink>
+                                            <NavLink to={`/news/${cat?.id}`} className='cursor-pointer'>{cat?.label}</NavLink>
+
+                                        )
+                                    }
+                                    else if (cat.type === 'standart') {
+                                        if (cat.posts_count > 1) {
+
+                                            return (
+                                                <NavLink to={`/yaslar`} className='cursor-pointer'>{cat?.label}</NavLink>
+
+                                            )
+                                        }
+                                        else if (cat.posts_count === 0) {
+                                            return (
+                                                <NavLink className='cursor-pointer'>{cat?.label}</NavLink>
+                                            )
+                                        } else {
+                                            return (
+
+                                                <NavLink to={`/topics/${cat.id}`} className='cursor-pointer'>{cat?.label}</NavLink>
+                                            )
+
+                                        }
+                                    }
+                                    else {
+                                        return (
+                                            <NavLink className='cursor-pointer'>{cat?.label}</NavLink>
                                         )
                                     }
 
@@ -192,6 +264,7 @@ function StickyNav() {
                                     // </>
                                     // )
                                 })}
+
 
                             </div>
                         </div>

@@ -15,6 +15,7 @@ import Questions from "./pages/Questions";
 import Map from "./components/Map";
 import AnotherMap from "./components/Anothermap";
 import { useEffect } from "react";
+import Project from "./pages/Project";
 // import ScrollToTopOnRouteChange from "./components/ScrollToTopOnRouteChange";
 
 
@@ -45,17 +46,20 @@ function App() {
 
             {/* <ScrollToTopOnRouteChange/> */}
             {/* <div className="relative"> */}
-            <Route path="ecohub/" exact element={<Home />} />
+            <Route path="/" exact element={<Home />} />
             <Route path="/news" element={<NewsPage />} />
+            <Route path="/news/:id" element={<NewsPage />} />
             <Route path="/newsletter" element={<NewsLetter />} />
-            <Route path="/tazelikler" element={<Tazelikler />} />
+            <Route path="/project" element={<Project />} />
+            <Route path="/topic/yaslar/:id" element={<Tazelikler />} />
             <Route path="/library" element={<Library />} />
             <Route path="/search" element={<Search />} />
             <Route path="/yaslar" element={<YashlarBarada />} />
-            <Route path="/yaslar/detail" element={<YashlarDetail />} />
+            <Route path="/yaslar/detail/:id" element={<YashlarDetail />} />
             <Route path="/vacansy" element={<Wakansiya />} />
-            <Route path="/vacansy/detail" element={<TopicDetail show={true} />} />
-            <Route path="/topic" element={<TopicDetail />} />
+            <Route path="/vacansy/:id" element={<TopicDetail show={true} />} />
+            <Route path="/topic/:id" element={<TopicDetail />} />
+            <Route path="/topics/:id" element={<TopicDetail />} />
             <Route path="/questions" element={<Questions />} />
             <Route path="/map" element={<Map />} />
             {/* <Route path="/map1" element={<AnotherMap />} /> */}

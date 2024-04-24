@@ -6,8 +6,9 @@ import { NavLink, useParams } from 'react-router-dom'
 import SingleNewsletter from '../components/SingleNewsletter'
 import axiosInstance from '../axios'
 import { useTranslation } from 'react-i18next'
+import SingleProjects from '../components/SingleProjects'
 
-function NewsLetter() {
+function Project() {
     const { t, i18n } = useTranslation();
     const { id } = useParams()
     const [cats, setCats] = useState(null)
@@ -18,10 +19,11 @@ function NewsLetter() {
         try {
             // isLoading(true)
 
-            const response = await axiosInstance.get(`${baseUrl}api/category/20`);
+            const response = await axiosInstance.get(`${baseUrl}api/category/17`);
 
 
-            console.log('newsletter response', response.data);
+            console.log('project response', response.data);
+            console.log('project response', typeof (response.data));
             setCats(response?.data)
             // isLoading(false)
 
@@ -40,10 +42,10 @@ function NewsLetter() {
                     <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
                         <path d="M1 1L7 7.5L1 14" stroke="#CFCFCF" stroke-width="1.5" />
                     </svg>
-                    <div className=' text-[#CFCFCF]'>Makalalar</div>
+                    <div className=' text-[#CFCFCF]'>Projects</div>
                 </div>
                 <div className='flex justify-center items-end w-full '>
-                    <div className='w-1/4 p-0 m-0 inline-block align-middle text-darkColor font-semibold text-[30px] '>Makalalar</div>
+                    <div className='w-1/4 p-0 m-0 inline-block align-middle text-darkColor font-semibold text-[30px] '>Proýektler</div>
                     <Divider className='w-3/4' showright={true} />
                 </div>
 
@@ -103,16 +105,18 @@ function NewsLetter() {
 
                 </div> */}
 
-                <div className="grid grid-cols-3 mt-10 gap-3">
-                    {cats?.map((cat) => {
+                <div className="grid grid-cols-3 mt-20 gap-3">
+                    {/* <SingleNewsletter /> */}
+                    {cats?.length > 1 ? cats?.map((cat) => {
                         return (
-                            <NavLink to={`/topic/${cat.id}`}>
-
-                                <SingleNewsletter date={cat?.date} title={cat?.title} content={cat?.content} />
-                            </NavLink>
+                            <SingleProjects date={cat?.date} image={`${baseUrl}/storage/upload/post/images/${cats?.image}`} title={cat?.title} content={cat?.content} />
                         )
-                    })}
+                    })
+                        :
 
+                        <SingleProjects date={cats?.date} image={`${baseUrl}/storage/upload/post/images/${cats?.image}`} title={cats?.title} content={cats?.content} />
+
+                    }
 
                 </div>
 
@@ -126,4 +130,4 @@ function NewsLetter() {
     )
 }
 
-export default NewsLetter
+export default Project

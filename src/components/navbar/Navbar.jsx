@@ -7,12 +7,12 @@ function Navbar() {
         <div className=' bg-primaryColor z-20 relative text-white'>
 
             <div className=' container pt-10   flex justify-between items-end pb-3'>
-                <NavLink to={`/ecohub`} className='line-clamp-2 text-start w-1/3 font-semibold uppercase tracking-widest'>
+                <NavLink to={`/`} className='line-clamp-2 text-start w-1/3 font-semibold uppercase tracking-widest'>
                     Türkmenistanyň
                     <br />
                     Ýaşlar Syýasaty
                 </NavLink>
-                <NavLink to={`/ecohub`} className=' mx-auto text-center flex justify-center text-center w-1/3 font-semibold capitalize tracking-wide'>
+                <NavLink to={`/`} className=' mx-auto text-center flex justify-center text-center w-1/3 font-semibold capitalize tracking-wide'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="141" height="44" viewBox="0 0 141 44" fill="none">
                         <path d="M17.7137 23.4091C17.7092 24.389 17.5596 25.3631 17.2697 26.3012C16.7377 24.785 15.8909 23.3924 14.7823 22.2106C13.6737 21.0288 12.3273 20.0832 10.8272 19.4331C10.5756 19.3209 10.3543 19.1528 10.181 18.9423C10.0077 18.7318 9.88724 18.4848 9.82902 18.2207C9.77081 17.9567 9.77649 17.683 9.84572 17.4215C9.91495 17.16 10.0457 16.9179 10.2277 16.7145L11.2845 15.5222C11.4368 15.3484 11.6228 15.2058 11.8318 15.1026C12.0408 14.9993 12.2686 14.9374 12.5021 14.9205C12.7357 14.9036 12.9705 14.9319 13.1928 15.0039C13.4151 15.0759 13.6206 15.1902 13.7975 15.3401C15.0079 16.3294 15.9847 17.5629 16.6607 18.9557C17.3367 20.3486 17.6959 21.8679 17.7137 23.4091Z" fill="white" />
                         <path d="M22.5399 20.9811C23.681 20.9811 24.6001 22.0694 24.6001 23.4135C24.6001 24.7576 23.681 25.8459 22.5399 25.8459C21.3988 25.8459 20.4842 24.7576 20.4842 23.4135C20.4842 22.0694 21.4032 20.9811 22.5399 20.9811Z" fill="white" />

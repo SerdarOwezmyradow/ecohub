@@ -1,13 +1,38 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import Divider from '../components/Divider'
+import { useTranslation } from 'react-i18next';
+import axiosInstance from '../axios';
 
 function Questions() {
+    const [cats, setCats] = useState(null)
+
+    const { t, i18n } = useTranslation();
+
+    const baseUrl = `http://216.250.11.159/`
+    const getCats = async () => {
+        try {
+            // isLoading(true)
+
+            const response = await axiosInstance.get(`${baseUrl}api/category/10`);
+
+
+            console.log('questions response', response.data);
+            setCats(response?.data)
+            // isLoading(false)
+
+        } catch (error) {
+            console.error('Error fetching categories:', error);
+        }
+    }
+    useEffect(() => {
+        getCats()
+    }, [i18n.language])
     return (
         <div className='container'>
             <div className='w-8/12 mx-auto'>
                 <div className='flex items-center my-10 gap-3'>
-                    <NavLink to={`/ecohub/`} className=' text-[#CFCFCF] cursor-pointer'>Baş sahypa</NavLink>
+                    <NavLink to={`/`} className=' text-[#CFCFCF] cursor-pointer'>Baş sahypa</NavLink>
                     <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
                         <path d="M1 1L7 7.5L1 14" stroke="#CFCFCF" stroke-width="1.5" />
                     </svg>
@@ -18,9 +43,18 @@ function Questions() {
                 </h1>
                 <div >
                     <ol class="list-decimal flex flex-col gap-2 list-inside">
-                        <li className='pb-5 border-b border-b-[#E1E1E1]'>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.s</li>
-                        <li className='pb-5 border-b border-b-[#E1E1E1]'>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.s</li>
-                        <li className='pb-5 border-b border-b-[#E1E1E1]'>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.s</li>
+                        {cats?.length > 0 ?
+                            cats?.map((cat) => {
+                                return (
+                                    <li className='pb-5 border-b border-b-[#E1E1E1]'>{cat?.title}</li>
+
+                                )
+                            }
+                            )
+                            :
+                            <li className='pb-5 border-b border-b-[#E1E1E1]'>{cats?.title}</li>
+
+                        }
 
                     </ol>
                 </div>

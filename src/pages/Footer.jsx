@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 
 function Footer() {
@@ -8,39 +9,35 @@ function Footer() {
                 <div className="flex">
                     <div className="w-3/5 flex ">
                         <ul className='flex w-1/2 flex-col  items-left gap-3 font-semibold'>
-                            <li className='cursor-pointer text-left' >
+                            <NavLink to={`/`} className='cursor-pointer text-left' >
                                 Baş sahypa
-                            </li>
-                            <li className='cursor-pointer text-left'>
+                            </NavLink>
+                            <NavLink to={`/topic/yaslar/2`} className='cursor-pointer text-left'>
                                 Ýaşlar Syýasaty
-                            </li>
-                            <li className='cursor-pointer text-left'>
+                            </NavLink>
+                            <NavLink to={`/news`} className='cursor-pointer text-left'>
                                 Habarlar
-                            </li>
-                            <li className='cursor-pointer text-left'>
+                            </NavLink>
+                            <NavLink to={`/yaslar`} className='cursor-pointer text-left'>
                                 Mümkinçilikler
-                            </li >
-                            <li className='cursor-pointer text-left'>
+                            </NavLink >
+                            <NavLink to={`/library`} className='cursor-pointer text-left'>
                                 Kitaphana
-                            </li>
-                            <li className='cursor-pointer text-left'>
-                                Medeniýet
-                            </li>
+                            </NavLink>
+
 
                         </ul>
                         <ul className='flex w-1/2 flex-col gap-3 items-left  font-semibold'>
-                            <li className='cursor-pointer text-left' >
+                            <NavLink to={`/library`} className='cursor-pointer text-left'>
                                 Kitaphana
-                            </li>
-                            <li className='cursor-pointer text-left'>
-                                Medeniýet
-                            </li>
+                            </NavLink>
+                          
                             <li className='cursor-pointer text-left'>
                                 Sanly Ulgam
                             </li>
-                            <li className='cursor-pointer text-left'>
+                            <NavLink to={`topics/1`} className='cursor-pointer text-left'>
                                 Biz Barada
-                            </li >
+                            </NavLink >
                         </ul>
                     </div>
                     <div className="w-2/5">

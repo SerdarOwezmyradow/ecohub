@@ -9,7 +9,7 @@ function Library() {
     return (
         <div className='overflow-x-hidden font-semibold'>
             <div className='flex container items-center my-10 gap-3'>
-                <NavLink to={`/ecohub/`} className=' text-[#CFCFCF] cursor-pointer'>Baş sahypa</NavLink>
+                <NavLink to={`/`} className=' text-[#CFCFCF] cursor-pointer'>Baş sahypa</NavLink>
                 <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
                     <path d="M1 1L7 7.5L1 14" stroke="#CFCFCF" stroke-width="1.5" />
                 </svg>

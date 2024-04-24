@@ -19,9 +19,9 @@ function Home() {
             
             <MainSlider/>
             <News/>
-            <Categories/>
-            <Newsletters/>
-            <Multimedia/>
+            {/* <Categories/> */}
+            {/* <Newsletters/> */}
+            {/* <Multimedia/> */}
             <Gallery/>
             {/* <About /> */}
             {/* <Courses /> */}
