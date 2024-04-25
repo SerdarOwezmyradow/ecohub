@@ -26,7 +26,7 @@ function NewsPage() {
                 response = await axiosInstance.get(`${baseUrl}api/category/3`);
             }
 
-            console.log('news response', response.data);
+            console.log('news response', response.data[0]);
             setCats(response?.data)
             // isLoading(false)
 
@@ -51,14 +51,23 @@ function NewsPage() {
                         :
                         <div className=' text-[#CFCFCF]'>Habarlar</div>
                     }
-                    {/* {id &&
-                        <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
-                            <path d="M1 1L7 7.5L1 14" stroke="#CFCFCF" stroke-width="1.5" />
-                        </svg>    
-                     } */}
+                    {id && cats &&
+                        <div className='flex items-center gap-3'>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
+                                <path d="M1 1L7 7.5L1 14" stroke="#CFCFCF" stroke-width="1.5" />
+                            </svg>
+                            <div className=' text-[#CFCFCF]'>{cats[0]?.category_name}</div>
+
+                        </div>
+                    }
                 </div>
                 <div className='flex justify-center items-end w-full '>
-                    <div className='w-1/4 p-0 m-0 inline-block align-middle text-darkColor font-semibold text-[30px] '>Täzelikler</div>
+                    {id && cats ?
+                        <div className='w-1/4 p-0 m-0 inline-block align-middle text-darkColor font-semibold text-[30px] '>{cats[0]?.category_name}</div>
+                        :
+                        <div className='w-1/4 p-0 m-0 inline-block align-middle text-darkColor font-semibold text-[30px] '>Tazelikler</div>
+
+                    }
                     <Divider className='w-3/4' showright={true} />
                 </div>
 

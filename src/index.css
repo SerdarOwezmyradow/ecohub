@@ -13,6 +13,10 @@ body {
     background-color: #fff;
     /* height: 200vh; */
 }
+.innerHtml img{
+    width: 100% !important;
+    height: auto !important;
+}
 
 .parent_image:hover .imageee{
     transition: .3s;

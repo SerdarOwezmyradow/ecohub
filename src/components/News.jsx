@@ -81,7 +81,7 @@ function News() {
             </div>
 
             <div className="grid grid-cols-3 mt-5 gap-3">
-                {cats?.posts?.slice(0, 3).map((cat) => {
+                {cats?.posts?.slice(4, 7).map((cat) => {
                     return (
                         <NavLink to={`/topic/${cat.id}`} key={cat.id}>
                             < Product id={cat.id} image={`${baseUrl}/storage/upload/post/images/${cat?.image}`} title={cat.title} date={cat.date} />

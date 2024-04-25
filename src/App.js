@@ -50,7 +50,7 @@ function App() {
             <Route path="/news" element={<NewsPage />} />
             <Route path="/news/:id" element={<NewsPage />} />
             <Route path="/newsletter" element={<NewsLetter />} />
-            <Route path="/project" element={<Project />} />
+            <Route path="/project/:id" element={<Project />} />
             <Route path="/topic/yaslar/:id" element={<Tazelikler />} />
             <Route path="/library" element={<Library />} />
             <Route path="/search" element={<Search />} />

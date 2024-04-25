@@ -47,10 +47,12 @@ function TopicDetail(props) {
                 </div>
 
                 <div className=' flex items-start gap-5  right-5 left-0'>
-                    <div className='wrap w-3/5 text-goldColor font-semibold text-[25px]'>{cats?.title}</div>
+                    <div className='wrap w-3/5 text-goldColor font-semibold text-[25px]'>{cats?.category_name}</div>
                     <Divider showright={true} className='mt-5' />
 
                 </div>
+                <div className='wrap w-4/5 text-goldColor mt-5 font-semibold text-[30px]'>{cats?.title}</div>
+
                 <div className="flex my-10 items-center gap-10 text-[#CFCFCF]">
                     {cats?.date &&
                         <span>
@@ -68,7 +70,7 @@ function TopicDetail(props) {
                 {/* <div className='text-goldColor text-[30px]'>
                     Türkmenistanyň kanuny
                 </div> */}
-                <div className=' mt-5 ' dangerouslySetInnerHTML={{ __html: cats?.content }}>
+                <div className=' mt-5 innerHtml' dangerouslySetInnerHTML={{ __html: cats?.content }}>
 
                 </div>
                 {/* <div className=' mt-5'>
@@ -77,11 +79,11 @@ function TopicDetail(props) {
                     </span>
                     - Türkmenistanyň 14 ýaşdan 35 ýaşa çenli ýaşdaky raýatlary.
                 </div> */}
-                {cats?.image &&
+                {/* {cats?.image &&
                     <div className='w-full aspect-video overflow-hidden bg-[#D9D9D9] my-5'>
                         <img className='w-full h-full' src={`${baseUrl}/storage/upload/post/images/${cats?.image}`} alt="" />
                     </div>
-                }
+                } */}
                 {/* <div className=''>
                     «Ýaşlar barada döwlet syýasaty hakynda» Türkmenistanyň kanuny ýaşlar barada döwlet syýasatynyň maksatlaryny, wezipelerini, ýörelgelerini we esasy ugurlaryny kesgitleýär, şeýle hem ýaşlaryň hukuklarynyň we azatlyklarynyň üpjün edilmeginde hem-de olaryň kämil şahsyýetler hökmünde kemala gelmeginde döwlet goldawynyň ýokarlandyrylmagyna gönükdirilendir.
                 </div> */}

@@ -19,7 +19,7 @@ function Project() {
         try {
             // isLoading(true)
 
-            const response = await axiosInstance.get(`${baseUrl}api/category/17`);
+            const response = await axiosInstance.get(`${baseUrl}api/category/${id}`);
 
 
             console.log('project response', response.data);
@@ -42,10 +42,10 @@ function Project() {
                     <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
                         <path d="M1 1L7 7.5L1 14" stroke="#CFCFCF" stroke-width="1.5" />
                     </svg>
-                    <div className=' text-[#CFCFCF]'>Projects</div>
+                    <div className=' text-[#CFCFCF]'>{cats?.category_name}</div>
                 </div>
-                <div className='flex justify-center items-end w-full '>
-                    <div className='w-1/4 p-0 m-0 inline-block align-middle text-darkColor font-semibold text-[30px] '>Proýektler</div>
+                <div className='flex justify-center gap-5 items-end w-full '>
+                    <div className='max-w-[50%] w-auto text-nowrap p-0 m-0 inline-block align-middle text-darkColor font-semibold text-[30px] '>{cats?.category_name}</div>
                     <Divider className='w-3/4' showright={true} />
                 </div>
 
@@ -109,13 +109,17 @@ function Project() {
                     {/* <SingleNewsletter /> */}
                     {cats?.length > 1 ? cats?.map((cat) => {
                         return (
-                            <SingleProjects date={cat?.date} image={`${baseUrl}/storage/upload/post/images/${cats?.image}`} title={cat?.title} content={cat?.content} />
+                            <NavLink to={`/topic/${cat?.id}`}>
+
+                                <SingleProjects date={cat?.date} image={`${baseUrl}/storage/upload/post/images/${cats?.image}`} title={cat?.title} content={cat?.content} />
+                            </NavLink>
                         )
                     })
                         :
+                        <NavLink to={`/topic/${cats?.id}`}>
 
-                        <SingleProjects date={cats?.date} image={`${baseUrl}/storage/upload/post/images/${cats?.image}`} title={cats?.title} content={cats?.content} />
-
+                            <SingleProjects date={cats?.date} image={`${baseUrl}/storage/upload/post/images/${cats?.image}`} title={cats?.title} content={cats?.content} />
+                        </NavLink>
                     }
 
                 </div>

@@ -107,12 +107,15 @@ function Tazelikler() {
                     <div className='text-darkColor text-xl'  >Başga habarlar</div>
                     {news?.slice(0, 4).map((cat) => {
                         return (
-                            <div className=' border-b mt-5   w-full'>
-                                <div className='font-semibold line-clamp-2 text-md'>{cat?.title}</div>
-                                <div className=" mt-5 text-goldColor left-0">
-                                    {cat?.date}
+                            <NavLink to={`/topic/${cat?.id}`}>
+
+                                <div className=' border-b mt-5   w-full'>
+                                    <div className='font-semibold line-clamp-2 text-md'>{cat?.title}</div>
+                                    <div className=" mt-5 text-goldColor left-0">
+                                        {cat?.date}
+                                    </div>
                                 </div>
-                            </div>
+                            </NavLink>
                         )
                     })}
 

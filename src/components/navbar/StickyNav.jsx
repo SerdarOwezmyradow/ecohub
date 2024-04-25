@@ -84,8 +84,8 @@ function StickyNav() {
 
     const ContentOnHover = (cat) => {
         setIsVisible(true)
-        console.log(cat.id);
         setData(cat)
+        console.log('data', data);
     }
 
     return (
@@ -209,12 +209,7 @@ function StickyNav() {
 
                                         )
                                     }
-                                    else if (cat?.id === 17) {
-                                        return (
-                                            <NavLink to={`/project`} className='cursor-pointer'>{cat?.label}</NavLink>
 
-                                        )
-                                    }
 
                                     else if (cat.type === 'map') {
                                         return (
@@ -253,6 +248,12 @@ function StickyNav() {
                                             )
 
                                         }
+                                    }
+                                    else if (cat.type === 'project') {
+                                        return (
+                                            <NavLink to={`/project/${cat.id}`} className='cursor-pointer'>{cat?.label}</NavLink>
+
+                                        )
                                     }
                                     else {
                                         return (

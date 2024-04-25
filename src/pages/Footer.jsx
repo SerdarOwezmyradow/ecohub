@@ -19,11 +19,9 @@ function Footer() {
                                 Habarlar
                             </NavLink>
                             <NavLink to={`/yaslar`} className='cursor-pointer text-left'>
-                                Mümkinçilikler
+                                Ýaşlar üçin Mümkinçilikler
                             </NavLink >
-                            <NavLink to={`/library`} className='cursor-pointer text-left'>
-                                Kitaphana
-                            </NavLink>
+                 
 
 
                         </ul>
