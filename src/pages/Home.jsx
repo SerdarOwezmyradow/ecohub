@@ -20,7 +20,7 @@ function Home() {
             <MainSlider/>
             <News/>
             {/* <Categories/> */}
-            {/* <Newsletters/> */}
+            <Newsletters/>
             {/* <Multimedia/> */}
             <Gallery/>
             {/* <About /> */}

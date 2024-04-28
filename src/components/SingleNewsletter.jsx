@@ -2,7 +2,7 @@ import React from 'react'
 
 function SingleNewsletter(props) {
     return (
-        <div className='bg-[#FAFAFA] cursor-pointer font-semibold p-4 relative w-full aspect-video'>
+        <div className='bg-[#FAFAFA] cursor-pointer font-[500] p-4 relative w-full aspect-video'>
             <div className="flex items-center gap-4">
                 <span className='text-sm text-goldColor text-nowrap xl:text-lg'>{props.date}</span>
                 <div className="flex w-full items-center gap-2">
@@ -13,7 +13,7 @@ function SingleNewsletter(props) {
                 </div>
             </div>
             <div className='mt-8 bottom-4 left-4 right-4'>
-                <span className='text-sm text-goldColor xl:text-lg'>{props.title}</span>
+                <span className='text-sm font-[500] text-goldColor xl:text-lg'>{props.title}</span>
                 <div className='text-darkColor xl:text-xl mt-3 line-clamp-3 w-full' dangerouslySetInnerHTML={{ __html: props?.content }}></div>
             </div>
 

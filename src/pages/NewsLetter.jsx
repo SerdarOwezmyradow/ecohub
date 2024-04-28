@@ -6,6 +6,7 @@ import { NavLink, useParams } from 'react-router-dom'
 import SingleNewsletter from '../components/SingleNewsletter'
 import axiosInstance from '../axios'
 import { useTranslation } from 'react-i18next'
+import baseUrl from '../baseUrl'
 
 function NewsLetter() {
     const { t, i18n } = useTranslation();
@@ -13,7 +14,7 @@ function NewsLetter() {
     const [cats, setCats] = useState(null)
 
 
-    const baseUrl = `http://216.250.11.159/`
+    // const baseUrl = `http://216.250.11.159:8080/`
     const getCats = async () => {
         try {
             // isLoading(true)

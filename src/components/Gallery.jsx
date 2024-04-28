@@ -11,6 +11,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import axiosInstance from '../axios';
+import baseUrl from '../baseUrl';
 
 function Multimedia() {
 
@@ -31,7 +32,7 @@ function Multimedia() {
         };
     }, [showLightBox]);
 
-    const baseUrl = `http://216.250.11.159/`
+    // const baseUrl = `http://216.250.11.159:8080/`
     const getCats = async () => {
         try {
             // isLoading(true)

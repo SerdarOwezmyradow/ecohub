@@ -3,6 +3,7 @@ import Divider from '../components/Divider'
 import { NavLink, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next';
 import axiosInstance from '../axios';
+import baseUrl from '../baseUrl';
 
 function Tazelikler() {
     const { t, i18n } = useTranslation();
@@ -11,7 +12,7 @@ function Tazelikler() {
     const [news, setNews] = useState(null)
 
 
-    const baseUrl = `http://216.250.11.159/`
+    // const baseUrl = `http://216.250.11.159:8080/`
     const getCats = async () => {
         try {
             // isLoading(true)
@@ -47,7 +48,7 @@ function Tazelikler() {
         getNews()
     }, [i18n.language, id])
     return (
-        <div className='container font-semibold '>
+        <div className='container font-[500] '>
             <div className='flex items-center my-10 gap-3'>
                 <NavLink to={`/`} className=' text-[#CFCFCF] cursor-pointer'>Baş sahypa</NavLink>
                 <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
@@ -59,7 +60,7 @@ function Tazelikler() {
                 <div className='w-2/3'>
 
                     <div className=' flex items-start gap-5  right-5 left-0'>
-                        <div className='wrap w-2/5 text-goldColor font-semibold text-[25px]'>{cats?.title}</div>
+                        <div className='wrap w-2/5 text-goldColor font-[500] text-[25px]'>{cats?.title}</div>
                         <Divider showright={true} className='mt-5' />
 
                     </div>
@@ -110,7 +111,7 @@ function Tazelikler() {
                             <NavLink to={`/topic/${cat?.id}`}>
 
                                 <div className=' border-b mt-5   w-full'>
-                                    <div className='font-semibold line-clamp-2 text-md'>{cat?.title}</div>
+                                    <div className='font-[500] line-clamp-2 text-md'>{cat?.title}</div>
                                     <div className=" mt-5 text-goldColor left-0">
                                         {cat?.date}
                                     </div>

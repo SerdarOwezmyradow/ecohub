@@ -10,6 +10,7 @@ import Divider from './Divider';
 import axiosInstance from '../axios';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import baseUrl from '../baseUrl';
 function MainSlider() {
     // SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
@@ -18,7 +19,7 @@ function MainSlider() {
     const [cats, setCats] = useState(null)
 
 
-    const baseUrl = `http://216.250.11.159/`
+    // const baseUrl = `http://216.250.11.159:8080/`
     const getCats = async () => {
         try {
             // isLoading(true)

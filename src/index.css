@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'Geologica-Regular';
+    src: url('./assets/Fonts/static/Geologica-Regular.ttf') format('truetype');
+         /* url('./assets/Fonts/static/') format('woff'), */
+         /* url('../fonts/GeneralSans-Variable.ttf') format('truetype'); */
+         font-weight: 200 !important;
+         font-display: swap;
+         font-style: normal;
+  }
+  
 .container {
     @apply mx-auto w-[10/14]
 }

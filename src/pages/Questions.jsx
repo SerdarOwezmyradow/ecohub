@@ -3,13 +3,14 @@ import { NavLink } from 'react-router-dom'
 import Divider from '../components/Divider'
 import { useTranslation } from 'react-i18next';
 import axiosInstance from '../axios';
+import baseUrl from '../baseUrl';
 
 function Questions() {
     const [cats, setCats] = useState(null)
 
     const { t, i18n } = useTranslation();
 
-    const baseUrl = `http://216.250.11.159/`
+    // const baseUrl = `http://216.250.11.159:8080/`
     const getCats = async () => {
         try {
             // isLoading(true)

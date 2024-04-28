@@ -16,11 +16,14 @@ import Map from "./components/Map";
 import AnotherMap from "./components/Anothermap";
 import { useEffect } from "react";
 import Project from "./pages/Project";
+import { useTranslation } from "react-i18next";
 // import ScrollToTopOnRouteChange from "./components/ScrollToTopOnRouteChange";
 
 
 
 function App() {
+  const { t, i18n } = useTranslation();
+
   const location = useLocation();
   useEffect(() => {
     // const scrollToTop = () => {
@@ -34,9 +37,10 @@ function App() {
     // return () => window.removeEventListener('hashchange', scrollToTop);
   }, [location.pathname]);
 
+
   return (
     <>
-      <div className="flex min-h-[100vh] flex-col">
+      <div className={`flex min-h-[100vh] flex-col ${i18n.language === 'ru' && 'font-[Geologica-Regular]'}`}>
 
         <Navbar />
         {/* <Router> */}
@@ -55,7 +59,7 @@ function App() {
             <Route path="/library" element={<Library />} />
             <Route path="/search" element={<Search />} />
             <Route path="/yaslar" element={<YashlarBarada />} />
-            <Route path="/yaslar/detail/:id" element={<YashlarDetail />} />
+            <Route path="/yaslar/:id" element={<YashlarDetail />} />
             <Route path="/vacansy" element={<Wakansiya />} />
             <Route path="/vacansy/:id" element={<TopicDetail show={true} />} />
             <Route path="/topic/:id" element={<TopicDetail />} />

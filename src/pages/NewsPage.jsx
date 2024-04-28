@@ -6,6 +6,7 @@ import Product from '../components/Product'
 import { NavLink, Route, useParams } from 'react-router-dom'
 import axiosInstance from '../axios'
 import { useTranslation } from 'react-i18next'
+import baseUrl from '../baseUrl'
 
 // import Product from './Product'
 function NewsPage() {
@@ -15,7 +16,7 @@ function NewsPage() {
     const [cats, setCats] = useState(null)
 
 
-    const baseUrl = `http://216.250.11.159/`
+    // const baseUrl = `http://216.250.11.159:8080/`
     const getCats = async () => {
         try {
             // isLoading(true)
@@ -26,7 +27,7 @@ function NewsPage() {
                 response = await axiosInstance.get(`${baseUrl}api/category/3`);
             }
 
-            console.log('news response', response.data[0]);
+            // console.log('news response', response.data[0]);
             setCats(response?.data)
             // isLoading(false)
 
@@ -46,26 +47,26 @@ function NewsPage() {
                     <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
                         <path d="M1 1L7 7.5L1 14" stroke="#CFCFCF" stroke-width="1.5" />
                     </svg>
-                    {id ?
-                        <NavLink to={'/news'} className=' text-[#CFCFCF]'>Habarlar</NavLink>
+                    {id && cats ?
+                        <NavLink to={'/news'} className=' text-[#CFCFCF]'>{cats && cats[0]?.category_category_name}</NavLink>
                         :
-                        <div className=' text-[#CFCFCF]'>Habarlar</div>
+                        <div className=' text-[#CFCFCF]'>{cats && cats[0]?.category_category_name}</div>
                     }
                     {id && cats &&
                         <div className='flex items-center gap-3'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
                                 <path d="M1 1L7 7.5L1 14" stroke="#CFCFCF" stroke-width="1.5" />
                             </svg>
-                            <div className=' text-[#CFCFCF]'>{cats[0]?.category_name}</div>
+                            <div className=' text-[#CFCFCF]'>{cats && cats[0]?.category_name}</div>
 
                         </div>
                     }
                 </div>
                 <div className='flex justify-center items-end w-full '>
                     {id && cats ?
-                        <div className='w-1/4 p-0 m-0 inline-block align-middle text-darkColor font-semibold text-[30px] '>{cats[0]?.category_name}</div>
+                        <div className='w-1/4 p-0 m-0 inline-block align-middle text-darkColor font-semibold text-[30px] '>{cats && cats[0]?.category_name}</div>
                         :
-                        <div className='w-1/4 p-0 m-0 inline-block align-middle text-darkColor font-semibold text-[30px] '>Tazelikler</div>
+                        <div className='w-1/4 p-0 m-0 inline-block align-middle text-darkColor font-semibold text-[30px] '>{cats && cats[0]?.category_category_name}</div>
 
                     }
                     <Divider className='w-3/4' showright={true} />

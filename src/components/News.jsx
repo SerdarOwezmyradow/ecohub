@@ -5,13 +5,14 @@ import Product from './Product'
 import { NavLink } from 'react-router-dom'
 import axiosInstance from '../axios'
 import { useTranslation } from 'react-i18next'
+import baseUrl from '../baseUrl'
 
 function News() {
 
     const { t, i18n } = useTranslation();
 
     const [cats, setCats] = useState(null)
-    const baseUrl = `http://216.250.11.159/`
+    // const baseUrl = `http://216.250.11.159:8080/`
     const getCats = async () => {
         try {
             // isLoading(true)
@@ -56,8 +57,8 @@ function News() {
                         return (
 
                             <div value={index} onClick={() => setPost(index)} className='h-1/4 cursor-pointer text-md xl:text-xl border-b snap-start relative w-full'>
-                                <div className={`font-semibold line-clamp-2 text-md ${index === post && 'text-goldColor'}`}>{cat?.title}</div>
-                                <div className="absolute font-semibold bottom-2 text-goldColor left-0">
+                                <div className={`font-[500] line-clamp-2 text-md ${index === post && 'text-goldColor'}`}>{cat?.title}</div>
+                                <div className="absolute font-[500] bottom-2 text-goldColor left-0">
                                     {cat?.date}
                                 </div>
                             </div>

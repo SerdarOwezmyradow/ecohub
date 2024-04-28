@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import { NavLink, useParams } from 'react-router-dom'
 import axiosInstance from '../axios';
+import baseUrl from '../baseUrl';
 
 function Wakansiya() {
     const [cats, setCats] = useState(null)
@@ -9,7 +10,7 @@ function Wakansiya() {
     const { t, i18n } = useTranslation();
     const { id } = useParams()
 
-    const baseUrl = `http://216.250.11.159/`
+    // const baseUrl = `http://216.250.11.159:8080/`
     const getCats = async () => {
         try {
             // isLoading(true)
