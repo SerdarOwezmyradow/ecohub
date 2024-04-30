@@ -50,11 +50,11 @@ function Tazelikler() {
     return (
         <div className='container font-[500] '>
             <div className='flex items-center my-10 gap-3'>
-                <NavLink to={`/`} className=' text-[#CFCFCF] cursor-pointer'>Baş sahypa</NavLink>
+                <NavLink to={`/`} className=' text-[#CFCFCF] hover:text-[#5E5E5E] cursor-pointer'>{t('key')}</NavLink>
                 <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
                     <path d="M1 1L7 7.5L1 14" stroke="#CFCFCF" stroke-width="1.5" />
                 </svg>
-                <div className=' text-[#CFCFCF]'>Täzelikler</div>
+                <div className=' text-[#CFCFCF]'>{cats?.category_name}</div>
             </div>
             <div className="flex">
                 <div className='w-2/3'>

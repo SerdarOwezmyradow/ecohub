@@ -27,6 +27,9 @@ body {
     width: 100% !important;
     height: auto !important;
 }
+.innerHtml p{
+    @apply text-xl
+}
 
 .parent_image:hover .imageee{
     transition: .3s;

@@ -40,6 +40,7 @@ function StickyNav() {
     const [datas, setDatas] = useState(null);
     const [lang, showLang] = useState(false);
     const [ids, setCurrentId] = useState(null);
+    const [idss, setCurrentIds] = useState(null);
 
     const { id } = useParams()
 
@@ -100,22 +101,56 @@ function StickyNav() {
 
     useEffect(() => {
         Changeid()
-        // }
-    }, [location.pathname]);
+        const pathParts = location.pathname.split('/');
 
-    const Changeid = () => {
+        if (idss && pathParts[1] === 'topic') {
+            getMainId()
+        }
+        if(location.pathname === '/'){
+            setCurrentId(null)
+            
+        }
+        // }
+    }, [location.pathname, idss]);
+
+    const getMainId = async () => {
+        // if (ids) {
+        try {
+            const resp = await axiosInstance.get(`${baseUrl}api/main/${idss}`);
+            console.log('log response', resp.data);
+            setCurrentId(resp?.data?.id)
+
+        } catch (error) {
+
+        }
+        // Handle response
+        // } else {
+        // Handle the case when ids is not defined
+
+        // }
+    }
+
+    const Changeid = async () => {
+
         const pathParts = location.pathname.split('/');
         setCurrentId(pathParts[pathParts?.length - 1]);
-        console.log('navbar id', ids);
-        console.log('location', pathParts[2]);
-        // console.log('navbar data', datas);
 
+
+        setCurrentIds(pathParts[pathParts?.length - 1]);
+        console.log('navbar id', ids);
+        console.log('location', pathParts[1]);
+        // console.log('navbar data', datas);
+        if (location.pathname === `/vacansy` || `/faq`) {
+            setCurrentId(data?.id)
+
+        }
         if (datas) {
             datas?.children?.forEach(element => {
                 console.log('route id', element.id);
                 if (element.id == pathParts[pathParts?.length - 1]) {
 
                     setCurrentId(data?.id)
+                    setCurrentIds(element.id)
                 }
             });
         }
@@ -168,7 +203,7 @@ function StickyNav() {
                                                 } else {
 
                                                     return (
-                                                        <li className={`${ids && ids == cat?.id && 'opacity-[50%]'} ${location.pathname === `/news` && cat?.type === 'news' && 'opacity-[50%]'} cursor-pointer hover:opacity-[50%] p-1   xl:text-xl font-[500] text-[16px] text-nowrap`} key={cat.id} value={cat?.label} onMouseEnter={() => ContentOnHover(cat)} >
+                                                        <li className={`${ids && ids == cat?.id && 'opacity-[50%]'} ${data?.id == cat?.id && 'opacity-[50%]'} ${location.pathname === `/news` && cat?.type === 'news' && 'opacity-[50%]'} cursor-pointer hover:opacity-[50%] p-1   xl:text-xl font-[500] text-[16px] text-nowrap`} key={cat.id} value={cat?.label} onMouseEnter={() => ContentOnHover(cat)} >
                                                             <div>
                                                                 {cat?.label}
                                                             </div>
@@ -267,7 +302,7 @@ function StickyNav() {
                         <div className='flex items-center container gap-10 flex-wrap' >
                             <div className='cursor-pointer'>
 
-                                <NavLink to={data?.type === 'news' ? '/news' : data?.id === 2 ? `/topic/yaslar/${data?.id}` : `/topics/${data?.id}`}>
+                                <NavLink className={`hover:opacity-[50%] `} to={data?.type === 'news' ? '/news' : data?.id === 2 ? `/topic/yaslar/${data?.id}` : `/topics/${data?.id}`}>
                                     {data?.label}
                                 </NavLink>
                             </div>
@@ -278,12 +313,12 @@ function StickyNav() {
 
                                     if (cat?.type === 'vacancy') {
                                         return (
-                                            <NavLink to={`/vacansy`} className='cursor-pointer'>{cat?.label}</NavLink>
+                                            <NavLink to={`/vacansy`} className={`${location.pathname === '/vacansy' && 'opacity-[50%]'} hover:opacity-[50%] cursor-pointer`}>{cat?.label}</NavLink>
 
                                         )
                                     } else if (cat.type === 'faq') {
                                         return (
-                                            <NavLink to={`/questions`} className='cursor-pointer'>{cat?.label}</NavLink>
+                                            <NavLink to={`/questions`} className={`${location.pathname === '/questions' && 'opacity-[50%]'} hover:opacity-[50%] cursor-pointer`}>{cat?.label}</NavLink>
 
                                         )
                                     }
@@ -291,19 +326,19 @@ function StickyNav() {
 
                                     else if (cat.type === 'map') {
                                         return (
-                                            <NavLink to={`/map`} className='cursor-pointer'>{cat?.label}</NavLink>
+                                            <NavLink to={`/map`} className={`${location.pathname === '/map' && 'opacity-[50%]'} hover:opacity-[50%] cursor-pointer`}>{cat?.label}</NavLink>
 
                                         )
                                     }
                                     else if (cat.type === 'oportunities') {
                                         return (
-                                            <NavLink to={`/yaslar`} className='cursor-pointer'>{cat?.label}</NavLink>
+                                            <NavLink to={`/yaslar`} className={`hover:opacity-[50%] cursor-pointer`}>{cat?.label}</NavLink>
 
                                         )
                                     }
                                     else if (cat.type === 'news') {
                                         return (
-                                            <NavLink to={`/news/${cat?.id}`} className='cursor-pointer'>{cat?.label}</NavLink>
+                                            <NavLink to={`/news/${cat?.id}`} className={`${idss == cat?.id && 'opacity-[50%]'} hover:opacity-[50%] cursor-pointer`}>{cat?.label}</NavLink>
 
                                         )
                                     }
@@ -311,31 +346,31 @@ function StickyNav() {
                                         if (cat.posts_count > 1) {
 
                                             return (
-                                                <NavLink to={`/yaslar`} className='cursor-pointer'>{cat?.label}</NavLink>
+                                                <NavLink to={`/yaslar`} className='hover:opacity-[50%] cursor-pointer'>{cat?.label}</NavLink>
 
                                             )
                                         }
                                         else if (cat.posts_count === 0) {
                                             return (
-                                                <NavLink className='cursor-pointer'>{cat?.label}</NavLink>
+                                                <NavLink className='hover:opacity-[50%] cursor-pointer'>{cat?.label}</NavLink>
                                             )
                                         } else {
                                             return (
 
-                                                <NavLink to={`/topics/${cat.id}`} className='cursor-pointer'>{cat?.label}</NavLink>
+                                                <NavLink to={`/topics/${cat.id}`} className={`${idss === cat?.id && 'opacity-[50%]'} hover:opacity-[50%] cursor-pointer`}>{cat?.label}</NavLink>
                                             )
 
                                         }
                                     }
                                     else if (cat.type === 'project') {
                                         return (
-                                            <NavLink to={`/project/${cat.id}`} className='cursor-pointer'>{cat?.label}</NavLink>
+                                            <NavLink to={`/project/${cat.id}`} className={`${idss == cat?.id && 'opacity-[50%]'} hover:opacity-[50%] cursor-pointer`}>{cat?.label}</NavLink>
 
                                         )
                                     }
                                     else {
                                         return (
-                                            <NavLink className='cursor-pointer'>{cat?.label}</NavLink>
+                                            <NavLink className='hover:opacity-[50%] cursor-pointer'>{cat?.label}</NavLink>
                                         )
                                     }
 

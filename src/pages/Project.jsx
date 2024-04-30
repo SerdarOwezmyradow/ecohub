@@ -39,7 +39,7 @@ function Project() {
         <div>
             <div className='container '>
                 <div className='flex items-center my-10 gap-3'>
-                    <NavLink to={`/`} className=' text-[#CFCFCF] cursor-pointer'>Baş sahypa</NavLink>
+                    <NavLink to={`/`} className=' text-[#CFCFCF] hover:text-[#5E5E5E] cursor-pointer'>{t('key')}</NavLink>
                     <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
                         <path d="M1 1L7 7.5L1 14" stroke="#CFCFCF" stroke-width="1.5" />
                     </svg>
@@ -112,14 +112,14 @@ function Project() {
                         return (
                             <NavLink to={`/topic/${cat?.id}`}>
 
-                                <SingleProjects date={cat?.date} image={`${baseUrl}/storage/upload/post/images/${cats?.image}`} title={cat?.title} content={cat?.content} />
+                                <SingleProjects imageId={cat?.image} date={cat?.date} image={`${baseUrl}/storage/upload/post/images/${cats?.image}`} title={cat?.title} content={cat?.content} />
                             </NavLink>
                         )
                     })
                         :
                         <NavLink to={`/topic/${cats?.id}`}>
 
-                            <SingleProjects date={cats?.date} image={`${baseUrl}/storage/upload/post/images/${cats?.image}`} title={cats?.title} content={cats?.content} />
+                            <SingleProjects imageId={cats?.image} date={cats?.date} image={`${baseUrl}/storage/upload/post/images/${cats?.image}`} title={cats?.title} content={cats?.content} />
                         </NavLink>
                     }
 

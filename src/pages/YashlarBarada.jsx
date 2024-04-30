@@ -36,7 +36,7 @@ function YashlarBarada() {
         <div>
             <div className="container">
                 <div className='flex items-center my-10 gap-3'>
-                    <NavLink to={`/`} className=' text-[#CFCFCF] cursor-pointer'>Baş sahypa</NavLink>
+                    <NavLink to={`/`} className=' hover:text-[#5E5E5E] text-[#CFCFCF] cursor-pointer'>{t('key')}</NavLink>
                     {cats &&
                         <div className='flex items-center gap-3'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
@@ -54,7 +54,7 @@ function YashlarBarada() {
                     {cats && cats?.map((cat) => {
                         return (
                             <NavLink to={`/yaslar/${cat?.id}`} className='bg-[#fafafa] grow shrink cursor-pointer w-full h-full aspect-[1/1]  flex justify-between flex-col  p-5 text-black font-[500] aspect-video'>
-                                <img src={`${baseUrl}/storage/upload/category/images/${cat?.image}`} alt="" />
+                                <img src={`${baseUrl}/storage/upload/category/images/${cat?.image}`} className='w-[70%] mx-auto' alt="" />
                                 <div className='w-full  text-[19px]'>
                                     {cat?.label}
                                 </div>

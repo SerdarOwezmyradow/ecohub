@@ -43,12 +43,12 @@ function NewsPage() {
         <div>
             <div className='container '>
                 <div className='flex items-center my-10 gap-3'>
-                    <NavLink to={`/`} className=' text-[#CFCFCF] cursor-pointer'>Baş sahypa</NavLink>
+                    <NavLink to={`/`} className=' text-[#CFCFCF] hover:text-[#5E5E5E] cursor-pointer'>{t('key')}</NavLink>
                     <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
                         <path d="M1 1L7 7.5L1 14" stroke="#CFCFCF" stroke-width="1.5" />
                     </svg>
                     {id && cats ?
-                        <NavLink to={'/news'} className=' text-[#CFCFCF]'>{cats && cats[0]?.category_category_name}</NavLink>
+                        <NavLink to={'/news'} className=' hover:text-[#5E5E5E] text-[#CFCFCF]'>{cats && cats[0]?.category_category_name}</NavLink>
                         :
                         <div className=' text-[#CFCFCF]'>{cats && cats[0]?.category_category_name}</div>
                     }
@@ -136,7 +136,7 @@ function NewsPage() {
                                     <NavLink to={`/topic/${cat.id}`} key={cat.id}>
 
                                         {/* <div>{cat?.title}</div> */}
-                                        <Product id={cat.id} image={`${baseUrl}/storage/upload/post/images/${cat?.image}`} title={cat.title} date={cat.date} />
+                                        <Product id={cat.id} imageId={cat?.image} image={`${baseUrl}/storage/upload/post/images/${cat?.image}`} title={cat.title} date={cat.date} />
                                     </NavLink>
                                 </>
                             )

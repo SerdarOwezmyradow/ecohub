@@ -20,22 +20,45 @@ i18n
     resources: {
       en: {
         translation: {
-          "key": "hello en",
-          'map':'Map'
+          "key": "Main page",
+          'map':'Map',
+          "library": "Library",
+          "news": "News",
+          "balkan": "Balkan",
+          "ahal": "Ahal",
+          "asgabat": "Ashgabat",
+          "mary": "Mary",
+          "dashoguz": "Dashoguz",
+          "lebap": "Lebap",
         }
       },
       ru: {
         translation: {
-          "key": "hello ru",
-          'map':'Карта'
+          "key": "Главная страница",
+          'map':'Карта',
+          "library": "Библиотека",
+          "news": "Новости",
+          "balkan": "Балкан",
+          "ahal": "Ахал",
+          "asgabat": "Ашхабад",
+          "mary": "Мары",
+          "dashoguz": "Дашогуз",
+          "lebap": "Лебап",
 
         }
       },
       tk: {
         translation: {
-          "key": "hello tk",
-          'map':'Karta'
-
+          "key": "Baş sahypa",
+          'map':'Karta',
+          "library": "Kitaphana",
+          "news": "Täzelikler",
+          "balkan": "Balkan",
+          "ahal": "Ahal",
+          "asgabat": "Aşgabat",
+          "mary": "Mary",
+          "dashoguz": "Daşoguz",
+          "lebap": "Lebap",
         }
       }
     },

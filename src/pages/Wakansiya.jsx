@@ -32,16 +32,16 @@ function Wakansiya() {
     return (
         <div className='container'>
             <div className='flex items-center my-10 gap-3'>
-                <NavLink to={`/`} className=' text-[#CFCFCF] cursor-pointer'>Baş sahypa</NavLink>
+                <NavLink to={`/`} className=' text-[#CFCFCF] hover:text-[#5E5E5E] cursor-pointer'>{t('key')}</NavLink>
                 <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
                     <path d="M1 1L7 7.5L1 14" stroke="#CFCFCF" stroke-width="1.5" />
                 </svg>
-                <div className=' text-[#CFCFCF]'>Wakansiya</div>
+                <div className=' text-[#CFCFCF]'>{cats && cats[0]?.category_name}</div>
             </div>
             <div className="w-1/2 mx-auto">
-                <div className='text-[30px] my-10'>Wakansiyalar</div>
+                <div className='text-[30px] my-10'>{cats && cats[0]?.category_name}</div>
                 <div className="flex flex-col gap-3">
-                    {cats?.map((cat) => {
+                    {cats && cats?.map((cat) => {
                         return (
                             <>
                                 <NavLink className={`flex group bg-[#FAFAFA] p-3 justify-between items-center`} to={`/vacansy/${cat?.id}`}>

@@ -33,7 +33,7 @@ function Newsletters() {
     return (
         <div className='container mt-20'>
             <div className="flex font-semibold items-center justify-between w-full">
-                <div className='font-semibold text-darkColor text-[30px]'>Makalalar</div>
+                <div className='font-semibold text-darkColor text-[30px]'>{cats && cats[0]?.category_name}</div>
                 <div className='flex text-[#BEBEBE] cursor-pointer items-center gap-2'>
                     <NavLink to={'/newsletter'} className='p-0 text-sm '>Doly gör</NavLink>
                     <svg xmlns="http://www.w3.org/2000/svg" width="6" height="12" viewBox="0 0 6 10" fill="none">

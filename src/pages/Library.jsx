@@ -4,16 +4,19 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import image from '../images/fairytale.png'
 import image1 from '../images/book.png'
+import { useTranslation } from 'react-i18next';
 
 function Library() {
+    const { t, i18n } = useTranslation();
+
     return (
         <div className='overflow-x-hidden font-semibold'>
             <div className='flex container items-center my-10 gap-3'>
-                <NavLink to={`/`} className=' text-[#CFCFCF] cursor-pointer'>Baş sahypa</NavLink>
+                <NavLink to={`/`} className=' text-[#CFCFCF] hover:text-[#5E5E5E] cursor-pointer'>{t('key')}</NavLink>
                 <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
                     <path d="M1 1L7 7.5L1 14" stroke="#CFCFCF" stroke-width="1.5" />
                 </svg>
-                <div className=' text-[#CFCFCF]'>Kitaphana</div>
+                <div className=' text-[#CFCFCF]'>{t('library')}</div>
             </div>
             <div className='text-[25px] container'>Öňe Çykanlar</div>
             <div className='flex items-center w-[100vw] justify-center '>

@@ -33,18 +33,31 @@ function Questions() {
         <div className='container'>
             <div className='w-8/12 mx-auto'>
                 <div className='flex items-center my-10 gap-3'>
-                    <NavLink to={`/`} className=' text-[#CFCFCF] cursor-pointer'>Baş sahypa</NavLink>
+                    <NavLink to={`/`} className=' text-[#CFCFCF] hover:text-[#5E5E5E] cursor-pointer'>{t('key')}</NavLink>
                     <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
                         <path d="M1 1L7 7.5L1 14" stroke="#CFCFCF" stroke-width="1.5" />
                     </svg>
-                    <div className=' text-[#CFCFCF]'>Soraglar</div>
+                    {cats && cats?.length > 0 ?
+                        < div className=' text-[#CFCFCF]'>{cats[0]?.category_name}</div>
+                        :
+                        <div className=' text-[#CFCFCF]'>{cats?.category_name}</div>
+
+                    }
                 </div>
-                <h1 className="text-goldColor mb-10 font-semibold text-[30px]">
-                    Sorag we Jogaplar
-                </h1>
+                {cats && cats?.length > 0 ?
+                    <h1 className="text-goldColor mb-10 font-semibold text-[30px]">
+                        {cats && cats[0]?.category_name}
+                    </h1>
+                    :
+                    <h1 className="text-goldColor mb-10 font-semibold text-[30px]">
+                        {cats?.category_name}
+                    </h1>
+
+                }
+            
                 <div >
                     <ol class="list-decimal flex flex-col gap-2 list-inside">
-                        {cats?.length > 0 ?
+                        {cats && cats?.length > 0 ?
                             cats?.map((cat) => {
                                 return (
                                     <li className='pb-5 border-b border-b-[#E1E1E1]'>{cat?.title}</li>
@@ -59,9 +72,16 @@ function Questions() {
 
                     </ol>
                 </div>
-                <h1 className="text-goldColor mt-32 mb-20 font-semibold text-[30px]">
-                    Sorag we Jogaplar
-                </h1>
+                 {cats && cats?.length > 0 ?
+                    <h1 className="text-goldColor mt-32 mb-20 font-semibold text-[30px]">
+                        {cats[0]?.category_name}
+                    </h1>
+                    :
+                    <h1 className="text-goldColor mt-32 mb-20 font-semibold text-[30px]">
+                        {cats?.category_name}
+                    </h1>
+
+                }
                 <div className='flex flex-col gap-5'>
                     <div className="flex gap-4">
                         <input type="text" placeholder='Ady Familýasy ' className='w-full  outline-none border-b py-3 border-b-[#CDCDCD]  ' />
@@ -83,7 +103,7 @@ function Questions() {
                 </div>
 
             </div>
-        </div>
+        </div >
     )
 }
 

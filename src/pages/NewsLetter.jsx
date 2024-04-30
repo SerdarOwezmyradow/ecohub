@@ -37,14 +37,14 @@ function NewsLetter() {
         <div>
             <div className='container '>
                 <div className='flex items-center my-10 gap-3'>
-                    <NavLink to={`/`} className=' text-[#CFCFCF] cursor-pointer'>Baş sahypa</NavLink>
+                    <NavLink to={`/`} className=' text-[#CFCFCF] hover:text-[#5E5E5E] cursor-pointer'>{t('key')}</NavLink>
                     <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
                         <path d="M1 1L7 7.5L1 14" stroke="#CFCFCF" stroke-width="1.5" />
                     </svg>
-                    <div className=' text-[#CFCFCF]'>Makalalar</div>
+                    <div className=' text-[#CFCFCF]'>{cats && cats[0]?.category_name }</div>
                 </div>
                 <div className='flex justify-center items-end w-full '>
-                    <div className='w-1/4 p-0 m-0 inline-block align-middle text-darkColor font-semibold text-[30px] '>Makalalar</div>
+                    <div className='w-1/4 p-0 m-0 inline-block align-middle text-darkColor font-semibold text-[30px] '>{cats && cats[0]?.category_name }</div>
                     <Divider className='w-3/4' showright={true} />
                 </div>
 
