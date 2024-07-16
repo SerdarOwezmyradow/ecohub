@@ -48,8 +48,17 @@ const TurkmenistanMap = () => {
         console.log('e.target.value', id);
     }
 
+    const [openIndex, setOpenIndex] = useState(null);
+
+    const handleMapContentClick = (index) => {
+        setOpenIndex(index === openIndex ? null : index);
+    };
+    useEffect(() => {
+        setOpenIndex(null); // Reset openIndex when id changes
+    }, [cats]);
+
     return (
-        <div className='container  flex text-center items-center'>
+        <div className='container mb-20  flex text-center items-center'>
             <div className='w-8/12 mx-auto'>
                 <div className='flex items-center my-10 gap-3'>
                     <NavLink to={`/`} className=' text-[#CFCFCF] hover:text-[#5E5E5E] text-nowrap cursor-pointer'>{t('key')}</NavLink>
@@ -107,11 +116,20 @@ const TurkmenistanMap = () => {
 
                 </div>
                 <div className='mt-20'>
-                    {cats && cats?.map((cat) => {
-                        return (
-                            <MapContent id={selectedId} title={cat?.title} content={cat?.content} />
-                        )
-                    })}
+                    {cats && cats?.map((cat, index) => (
+                        <MapContent
+                            key={index}
+                            id={index}
+                            isOpen={index === openIndex}
+                            title={cat?.title}
+                            leader={cat?.leader}
+                            adress={cat?.address}
+                            phone={cat?.phone}
+                            image={cat?.image}
+                            content={cat?.content}
+                            onClick={() => handleMapContentClick(index)}
+                        />
+                    ))}
                 </div>
             </div>
 

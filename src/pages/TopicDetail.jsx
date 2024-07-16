@@ -35,7 +35,7 @@ function TopicDetail(props) {
 
 
         return (
-            <div className='container'>
+            <div className='container mb-20'>
 
                 {/* <div className="flex"> */}
                 <div className='w-8/12 mx-auto'>

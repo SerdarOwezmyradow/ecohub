@@ -30,6 +30,8 @@ i18n
           "mary": "Mary",
           "dashoguz": "Dashoguz",
           "lebap": "Lebap",
+          "gallery": "Gallery",
+
         }
       },
       ru: {
@@ -44,6 +46,8 @@ i18n
           "mary": "Мары",
           "dashoguz": "Дашогуз",
           "lebap": "Лебап",
+          "gallery": "Галерея",
+
 
         }
       },
@@ -59,6 +63,7 @@ i18n
           "mary": "Mary",
           "dashoguz": "Daşoguz",
           "lebap": "Lebap",
+          "gallery": "Galereýa",
         }
       }
     },

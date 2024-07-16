@@ -11,6 +11,9 @@ import axiosInstance from '../axios';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import baseUrl from '../baseUrl';
+import LazyImage from './LazyImage';
+
+
 function MainSlider() {
     // SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
@@ -77,7 +80,8 @@ function MainSlider() {
                                         </div>
 
                                         <div className='w-1/2 h-full'>
-                                            <img src={`${baseUrl}/storage/upload/banner/${cat?.photo}`} className='object-cover w-full h-full' alt="" />
+                                            {/* <img src={`${baseUrl}/storage/upload/banner/${cat?.photo}`} className='object-cover w-full h-full' alt="" /> */}
+                                            <LazyImage src={`${baseUrl}/storage/upload/banner/${cat?.photo}`} className='object-cover w-full h-full' alt={cat?.title}/>
                                         </div>
                                     </div>
                                 </SwiperSlide>

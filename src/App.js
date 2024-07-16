@@ -17,6 +17,7 @@ import AnotherMap from "./components/Anothermap";
 import { useEffect } from "react";
 import Project from "./pages/Project";
 import { useTranslation } from "react-i18next";
+import Enneagram from "./pages/Enneagram";
 // import ScrollToTopOnRouteChange from "./components/ScrollToTopOnRouteChange";
 
 
@@ -66,6 +67,7 @@ function App() {
             <Route path="/topics/:id" element={<TopicDetail />} />
             <Route path="/questions" element={<Questions />} />
             <Route path="/map" element={<Map />} />
+            <Route path="/enneagram" element={<Enneagram />} />
             {/* <Route path="/map1" element={<AnotherMap />} /> */}
 
             {/* <Home /> */}

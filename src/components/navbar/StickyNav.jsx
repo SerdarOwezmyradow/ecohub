@@ -100,16 +100,18 @@ function StickyNav() {
     }, []);
 
     useEffect(() => {
+        setCurrentId(null)
+      
         Changeid()
         const pathParts = location.pathname.split('/');
-
+        
         if (idss && pathParts[1] === 'topic') {
             getMainId()
         }
         if(location.pathname === '/'){
             setCurrentId(null)
-            
         }
+        
         // }
     }, [location.pathname, idss]);
 
@@ -239,7 +241,7 @@ function StickyNav() {
                                         })
 
                                     }
-                                    {/* <NavLink to={`/library`} className='cursor-pointer hover:opacity-[50%] p-1 '>Kitaphana</NavLink> */}
+                                    <NavLink to={`/enneagram`} className={`${location.pathname === '/enneagram' && 'opacity-[50%]'} cursor-pointer font-[500] hover:opacity-[50%] p-1  text-nowrap xl:text-xl `}>Ugur Saýla</NavLink>
 
 
                                 </ul>

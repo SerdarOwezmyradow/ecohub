@@ -30,7 +30,7 @@ function Questions() {
         getCats()
     }, [i18n.language])
     return (
-        <div className='container'>
+        <div className='container mb-20'>
             <div className='w-8/12 mx-auto'>
                 <div className='flex items-center my-10 gap-3'>
                     <NavLink to={`/`} className=' text-[#CFCFCF] hover:text-[#5E5E5E] cursor-pointer'>{t('key')}</NavLink>

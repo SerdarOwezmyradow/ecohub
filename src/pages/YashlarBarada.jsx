@@ -34,7 +34,7 @@ function YashlarBarada() {
 
     return (
         <div>
-            <div className="container">
+            <div className="container mb-20">
                 <div className='flex items-center my-10 gap-3'>
                     <NavLink to={`/`} className=' hover:text-[#5E5E5E] text-[#CFCFCF] cursor-pointer'>{t('key')}</NavLink>
                     {cats &&

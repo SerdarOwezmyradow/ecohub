@@ -29,7 +29,7 @@ function Footer() {
         getCats()
     }, [i18n.language])
     return (
-        <div className=' bg-primaryColor mt-20'>
+        <div className=' bg-primaryColor '>
             <div className="container text-white py-10">
                 <div className="flex">
                     <div className="w-3/5 flex ">

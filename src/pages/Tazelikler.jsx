@@ -48,7 +48,7 @@ function Tazelikler() {
         getNews()
     }, [i18n.language, id])
     return (
-        <div className='container font-[500] '>
+        <div className='container mb-20 font-[500] '>
             <div className='flex items-center my-10 gap-3'>
                 <NavLink to={`/`} className=' text-[#CFCFCF] hover:text-[#5E5E5E] cursor-pointer'>{t('key')}</NavLink>
                 <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">

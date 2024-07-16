@@ -12,6 +12,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import axiosInstance from '../axios';
 import baseUrl from '../baseUrl';
+import { useTranslation } from 'react-i18next';
 
 function Multimedia() {
 
@@ -19,6 +20,8 @@ function Multimedia() {
     const [showLightBox, setShowLightBox] = useState(false)
     const [selectedImage, setSelectedImage] = useState(0)
 
+    const { t, i18n } = useTranslation();
+    
     useEffect(() => {
         if (showLightBox) {
             document.body.style.overflow = 'hidden'; // Prevent scrolling
@@ -65,11 +68,11 @@ function Multimedia() {
         setSelectedImage((prevIndex) => (prevIndex === cats?.length - 1 ? 0 : prevIndex + 1));
     };
     return (
-        <div className=''>
+        <div className='mb-20'>
 
             <div className='container mt-20'>
                 <div className='flex justify-center items-end w-full '>
-                    <div className='w-1/4 p-0 m-0 inline-block align-middle text-darkColor font-semibold text-[30px] '>Galereýa</div>
+                    <div className='w-1/4 p-0 m-0 inline-block align-middle text-darkColor font-semibold text-[30px] '>{t('gallery')}</div>
                     <Divider className='w-3/4' showright={true} />
                 </div>
 

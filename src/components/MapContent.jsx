@@ -1,37 +1,74 @@
 import React, { useEffect, useState } from 'react'
 
 function MapContent(props) {
-    const [rotation, setRotation] = useState(0);
-    const [content, setContent] = useState(false);
+    const { isOpen, title, content, onClick, phone, leader, adress } = props;
 
-    const handleClick = () => {
-        setContent(!content)
-        if (!content) {
-            setRotation(180);
-        } else {
-            setRotation(0);
-
-        }
-    };
-    useEffect(() => {
-        setRotation(0)
-        setContent(false)
-        
-    }, [props.id])
-    
     return (
         <div>
-            <div onClick={handleClick} className={`group ${!content ? '' : 'text-[#CCCCCC]'} hover:text-[#CCCCCC]  mt-3 flex items-center bg-[#FAFAFA] cursor-pointer justify-between p-4  w-full`}>
-                <span>{props.title}</span>
-                <svg style={{ transform: `rotate(${rotation}deg)` }} className={`${!content ? 'stroke-black' : 'stroke-[#CCCCCC]'}  group-hover:stroke-[#CCCCCC]`} xmlns="http://www.w3.org/2000/svg" width="17" height="8" viewBox="0 0 17 8" fill="none">
-                    <path d="M16 0.999999L8.5 7L1 1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <div
+                onClick={onClick}
+                className={`group mt-3 flex items-center font-[500] bg-[#FAFAFA] cursor-pointer justify-between p-4 w-full`}
+            >
+                <span>{title}</span>
+                <svg
+                    style={{ transform: `rotate(${isOpen ? 180 : 0}deg)` }}
+                    className={`stroke-black`}
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="17"
+                    height="8"
+                    viewBox="0 0 17 8"
+                    fill="none"
+                >
+                    <path
+                        d="M16 0.999999L8.5 7L1 1"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                    />
                 </svg>
+            </div>
+            <div
+                className={`${!isOpen ? 'hidden' : 'block'} font-[500] text-start flex item-center border-t p-5 border-t-[#E1E1E1]  gap-4 bg-[#FAFAFA] p-4`}
+            // dangerouslySetInnerHTML={{ __html: content }}
+            >
+                <div className='w-1/2 flex flex-col gap-4'>
+                    <div className='flex flex-col '>
+                        <span className='text-[#B4B4B4]'>Leader</span>
+                        <div>
+                            {leader}
+                        </div>
+                    </div>
+                    <div className='flex flex-col '>
+                        <span className='text-[#B4B4B4]'>Address</span>
+                        <div>
+                            {adress}
+                        </div>
+                    </div>
+                </div>
+                <div className='w-1/2 flex items-start gap-3'>
+
+                    <div className='w-1/2'>
+                        <span className='text-[#B4B4B4]'>Telefon</span>
+                        <div className='flex flex-col '>
+                            {phone?.map((phon) => {
+                                return (
+                                    <div>
+                                        {phon}
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    </div>
+                    <div className='w-1/2'>
+                        <div className={` ${props.image ? '' : 'hidden' } w-18 aspect-square rounded-xl overflow-hidden bg-[#EEEEEE]`}>
+                            <img src={props.image} className='object-cover h-full w-full' alt="" />
+                        </div>
+                    </div>
+                </div>
 
             </div>
-            <div className={`${!content ? 'hidden' : 'block'} text-start flex flex-col gap-4 bg-[#FAFAFA] p-4 mt-2`} dangerouslySetInnerHTML={{ __html: props?.content }} >
-            </div>
         </div>
-    )
+    );
 }
 
 export default MapContent
