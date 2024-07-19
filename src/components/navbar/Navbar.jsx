@@ -1,8 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import StickyNav from './StickyNav'
 import { NavLink } from 'react-router-dom'
 
 function Navbar() {
+    const date = new Date();
+    const [currentdate, setDate] = useState()
+    useEffect(() => {
+
+        let day = date.getDate();
+        let month = date.getMonth() + 1;
+        let year = date.getFullYear();
+        let currentDate = `${day}.${month}.${year}`;
+        setDate(currentDate)
+    }, [])
+
+
+    // This arrangement can be altered based on how we want the date's format to appear.
+    // console.log(currentDate); // "17-6-2022"
     return (
         <div className=' bg-primaryColor z-20 relative text-white'>
 
@@ -40,7 +54,7 @@ function Navbar() {
                 </NavLink >
                 <div className='line-clamp-2 text-end w-1/3 flex flex-col font-[500] capitalize '>
                     <div>
-                        18.08.2024
+                        {currentdate}
                     </div>
                     <div className='uppercase'>
 

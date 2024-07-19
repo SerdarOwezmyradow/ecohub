@@ -12,19 +12,20 @@ function NewsLetter() {
     const { t, i18n } = useTranslation();
     const { id } = useParams()
     const [cats, setCats] = useState(null)
+    const [Loading, isLoading] = useState(false)
 
 
     // const baseUrl = `http://216.250.11.159:8080/`
     const getCats = async () => {
         try {
-            // isLoading(true)
+            isLoading(true)
 
             const response = await axiosInstance.get(`${baseUrl}api/category/20`);
 
 
             console.log('newsletter response', response.data);
             setCats(response?.data)
-            // isLoading(false)
+            isLoading(false)
 
         } catch (error) {
             console.error('Error fetching categories:', error);
@@ -103,7 +104,7 @@ function NewsLetter() {
                     </div>
 
                 </div> */}
-
+                {!Loading ? 
                 <div className="grid grid-cols-3 mt-10 gap-3">
                     {cats?.map((cat) => {
                         return (
@@ -116,6 +117,13 @@ function NewsLetter() {
 
 
                 </div>
+                   :
+                    <div className='grid grid-cols-3 mt-10 gap-3'>
+                        <div className='w-full aspect-video animate-pulse bg-slate-200'></div>
+                        <div className='w-full aspect-video animate-pulse bg-slate-200'></div>
+                        <div className='w-full aspect-video animate-pulse bg-slate-200'></div>
+                    </div>
+                   }
 
                 {/* <div className='flex mt-20 gap-5 '>
                     <Divider showleft={true} />

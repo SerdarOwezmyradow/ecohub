@@ -111,9 +111,8 @@ function StickyNav() {
         if(location.pathname === '/'){
             setCurrentId(null)
         }
-        
         // }
-    }, [location.pathname, idss]);
+    }, [location.pathname, idss,ids]);
 
     const getMainId = async () => {
         // if (ids) {
@@ -131,13 +130,14 @@ function StickyNav() {
 
         // }
     }
-
+    useEffect(() => {
+        // Reset state to null on route change
+        setCurrentId(null);
+        setCurrentIds(null);
+      }, [location]);
     const Changeid = async () => {
-
         const pathParts = location.pathname.split('/');
         setCurrentId(pathParts[pathParts?.length - 1]);
-
-
         setCurrentIds(pathParts[pathParts?.length - 1]);
         console.log('navbar id', ids);
         console.log('location', pathParts[1]);
@@ -181,12 +181,11 @@ function StickyNav() {
 
     return (
         <>
-
             <div ref={navbarRef} className={`bg-primaryColor pt-4    navbar  text-white ${isSticky ? 'fixed top-0 w-full z-40 ' : ''}`}>
                 <div className='relative'>
 
                     <div className={` ${isSticky ? ' ' : 'border-t border-t-2'} container    pt-4 h-auto w-[100%] z-20 flex justify-between items-center pb-3`}>
-                        <div className="links ">
+                        <div className="links  ">
                             {!loading ?
 
                                 < ul className='flex justify-between  items-center group gap-4 font-semibold'>
@@ -245,7 +244,15 @@ function StickyNav() {
 
 
                                 </ul>
-                                : 'loading'}
+                                : 
+                                <div className='flex items-center justify-between gap-5 w-full '>
+                                    <div className='animate-pulse rounded-full bg-slate-200 w-20 h-5'></div>
+                                    <div className='animate-pulse rounded-full bg-slate-200 w-20 h-5'></div>
+                                    <div className='animate-pulse rounded-full bg-slate-200 w-20 h-5'></div>
+                                    <div className='animate-pulse rounded-full bg-slate-200 w-20 h-5'></div>
+                                    <div className='animate-pulse rounded-full bg-slate-200 w-20 h-5'></div>
+                                </div>
+                                }
 
 
                         </div>

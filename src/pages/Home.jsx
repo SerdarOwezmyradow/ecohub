@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 // import Navbar from "./components/Navbar";
 
 import About from "../About";
@@ -17,12 +17,14 @@ function Home() {
     return (
         <div className=''>
             
-            <MainSlider/>
-            <News/>
-            {/* <Categories/> */}
-            <Newsletters/>
-            {/* <Multimedia/> */}
-            <Gallery/>
+
+                <MainSlider />
+                <News />
+                {/* <Categories/> */}
+                <Newsletters />
+                {/* <Multimedia/> */}
+                <Gallery />
+            
             {/* <About /> */}
             {/* <Courses /> */}
             {/* <RecentBlogs/> */}

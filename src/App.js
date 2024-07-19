@@ -41,7 +41,7 @@ function App() {
 
   return (
     <>
-      <div className={`flex min-h-[100vh] flex-col ${i18n.language === 'ru' && 'font-[Geologica-Regular]'}`}>
+      <div className={`flex min-h-[100vh] flex-col  font-[Geologica-Regular]`}>
 
         <Navbar />
         {/* <Router> */}

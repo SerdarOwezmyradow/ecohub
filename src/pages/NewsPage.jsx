@@ -14,12 +14,13 @@ function NewsPage() {
     const { t, i18n } = useTranslation();
     const { id } = useParams()
     const [cats, setCats] = useState(null)
+    const [Loading, isLoading] = useState(false)
 
 
     // const baseUrl = `http://216.250.11.159:8080/`
     const getCats = async () => {
         try {
-            // isLoading(true)
+            isLoading(true)
             let response
             if (id) {
                 response = await axiosInstance.get(`${baseUrl}api/category/${id}`);
@@ -29,7 +30,7 @@ function NewsPage() {
 
             // console.log('news response', response.data[0]);
             setCats(response?.data)
-            // isLoading(false)
+            isLoading(false)
 
         } catch (error) {
             console.error('Error fetching categories:', error);
@@ -127,27 +128,37 @@ function NewsPage() {
                     </div>
 
                 </div> */}
-                {cats?.length > 0 ?
-                    <div className="grid grid-cols-4 mt-5 gap-3">
+                {!Loading ?
+                    <div>
 
-                        {cats?.map((cat) => {
-                            return (
-                                <>
-                                    <NavLink to={`/topic/${cat.id}`} key={cat.id}>
+                        {cats?.length > 0 ?
+                            <div className="grid grid-cols-4 mt-5 gap-3">
 
-                                        {/* <div>{cat?.title}</div> */}
-                                        <Product id={cat.id} imageId={cat?.image} image={`${baseUrl}/storage/upload/post/images/${cat?.image}`} title={cat.title} date={cat.date} />
-                                    </NavLink>
-                                </>
-                            )
-                        })}
+                                {cats?.map((cat) => {
+                                    return (
+                                        <>
+                                            <NavLink to={`/topic/${cat.id}`} key={cat.id}>
+
+                                                {/* <div>{cat?.title}</div> */}
+                                                <Product id={cat.id} imageId={cat?.image} image={`${baseUrl}/storage/upload/post/images/${cat?.image}`} title={cat.title} date={cat.date} />
+                                            </NavLink>
+                                        </>
+                                    )
+                                })}
+                            </div>
+                            :
+                            <div className='flex justify-center items-center flex-col'>
+                                <div className='mt-20 font-semibold text-center'>No topics found</div>
+                                <NavLink to={'/news'} className='text-center mt-10 text-white bg-primaryColor px-4 py-2 '>All news</NavLink>
+                            </div>
+                        }
                     </div>
-                    :
-                    <div className='flex justify-center items-center flex-col'>
-                        <div className='mt-20 font-semibold text-center'>No topics found</div>
-                        <NavLink to={'/news'} className='text-center mt-10 text-white bg-primaryColor px-4 py-2 '>All news</NavLink>
-                    </div>
-                }
+                    : <div className='grid grid-cols-4 mt-5 gap-3'>
+                        <div className='animate-pulse aspect-[3/5] bg-slate-200'></div>
+                        <div className='animate-pulse aspect-[3/5] bg-slate-200'></div>
+                        <div className='animate-pulse aspect-[3/5] bg-slate-200'></div>
+                        <div className='animate-pulse aspect-[3/5] bg-slate-200'></div>
+                    </div>}
 
                 {/* {JSON.stringify(cats)} */}
 

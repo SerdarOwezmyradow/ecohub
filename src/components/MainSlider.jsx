@@ -20,19 +20,20 @@ function MainSlider() {
     const { t, i18n } = useTranslation();
     const { id } = useParams()
     const [cats, setCats] = useState(null)
+    const [isLoading, setisLoading] = useState(false)
 
 
     // const baseUrl = `http://216.250.11.159:8080/`
     const getCats = async () => {
         try {
-            // isLoading(true)
+            setisLoading(true)
 
             const response = await axiosInstance.get(`${baseUrl}api/home`);
 
 
             console.log('banners response', response.data.banners);
             setCats(response?.data?.banners)
-            // isLoading(false)
+            setisLoading(false)
 
         } catch (error) {
             console.error('Error fetching categories:', error);
@@ -63,32 +64,40 @@ function MainSlider() {
                         nextEl: '.custom-next-button',
                     }}
                 >
-                    {cats?.map((cat) => {
-                        return (
-                            <>
-                                <SwiperSlide className=''>
-                                    <div className='flex w-full p-4 aspect-[9/4] bg-[#F8F8F8]'>
-                                        <div className='w-1/2 relative pe-5'>
+                    {!isLoading ?
+                        <div>
 
-                                            <div className='text-goldColor w-3/4  font-semibold text-[30px] capitalize ' dangerouslySetInnerHTML={{ __html: cat?.content }}>
-                                          
+                            {cats?.map((cat) => {
+                                return (
+                                    <>
+
+                                        <SwiperSlide className=''>
+
+                                            <div className='flex w-full p-4 aspect-[9/4] bg-[#F8F8F8]'>
+                                                <div className='w-1/2 relative pe-5'>
+
+                                                    <div className='text-goldColor w-3/4  font-semibold text-[30px] capitalize ' dangerouslySetInnerHTML={{ __html: cat?.content }}>
+
+                                                    </div>
+                                                    <div className='absolute bottom-4 flex items-end gap-5  right-5 left-0'>
+                                                        <div className='wrap w-1/3 text-goldColor font-semibold text-xl'>{cat?.title}</div>
+                                                        <Divider showright={true} />
+                                                    </div>
+                                                </div>
+
+                                                <div className='w-1/2 h-full'>
+                                                    {/* <img src={`${baseUrl}/storage/upload/banner/${cat?.photo}`} className='object-cover w-full h-full' alt="" /> */}
+                                                    <LazyImage src={`${baseUrl}/storage/upload/banner/${cat?.photo}`} className='object-cover w-full h-full' alt={cat?.title} />
+                                                </div>
                                             </div>
-                                            <div className='absolute bottom-4 flex items-end gap-5  right-5 left-0'>
-                                                <div className='wrap w-1/3 text-goldColor font-semibold text-xl'>{cat?.title}</div>
-                                                <Divider showright={true} />
-                                            </div>
-                                        </div>
+                                        </SwiperSlide>
 
-                                        <div className='w-1/2 h-full'>
-                                            {/* <img src={`${baseUrl}/storage/upload/banner/${cat?.photo}`} className='object-cover w-full h-full' alt="" /> */}
-                                            <LazyImage src={`${baseUrl}/storage/upload/banner/${cat?.photo}`} className='object-cover w-full h-full' alt={cat?.title}/>
-                                        </div>
-                                    </div>
-                                </SwiperSlide>
-
-                            </>
-                        )
-                    })}
+                                    </>
+                                )
+                            })}
+                        </div>
+                        : <div className='bg-slate-200 animate-pulse w-full p-4 aspect-[9/4]'>
+                        </div>}
 
 
                     {/* <SwiperSlide className='h-[100vh] bg-[red]'>Slide 2</SwiperSlide> */}
