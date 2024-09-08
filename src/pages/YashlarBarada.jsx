@@ -50,12 +50,12 @@ function YashlarBarada() {
                 <div className='text-[40px] font-[500] my-10 w-1/3'>
                     {cats && cats[0]?.category_name}
                 </div>
-                <div className=" grid h-max flex grid-cols-4 gap-3">
+                <div className=" grid h-max flex items-center justify-center  grid-cols-5 gap-3">
                     {cats && cats?.map((cat) => {
                         return (
-                            <NavLink to={`/yaslar/${cat?.id}`} className='bg-[#fafafa] grow shrink cursor-pointer w-full h-full aspect-[1/1]  flex justify-between flex-col  p-5 text-black font-[500] aspect-video'>
+                            <NavLink to={`/yaslar/${cat?.id}`} className='bg-[#fafafa] grow mx-auto shrink cursor-pointer w-full h-full aspect-[1/1]  flex justify-between flex-col text-black font-[500] aspect-video'>
                                 <img src={`${baseUrl}/storage/upload/category/images/${cat?.image}`} className='w-[70%] mx-auto' alt="" />
-                                <div className='w-full  text-[19px]'>
+                                <div className='w-full px-5 pb-3 text-[16px]'>
                                     {cat?.label}
                                 </div>
                             </NavLink>

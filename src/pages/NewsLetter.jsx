@@ -105,7 +105,7 @@ function NewsLetter() {
 
                 </div> */}
                 {!Loading ? 
-                <div className="grid grid-cols-3 mt-10 gap-3">
+                <div className="grid grid-cols-3 mt-10 gap-5">
                     {cats?.map((cat) => {
                         return (
                             <NavLink to={`/topic/${cat.id}`}>

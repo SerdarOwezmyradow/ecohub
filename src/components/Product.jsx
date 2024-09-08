@@ -19,7 +19,7 @@ function Product(props) {
             <div className="bg-white xl:text-xl text-darkColor line-clamp-2 w-[90%] font-[500] pt-3 flex-col">
                 <div>{props.title}</div>
             </div>
-            <div className='text-goldColor mt-5 xl:text-lg font-[500]'>
+            <div className='text-goldColor mt-3 xl:text-lg font-[500]'>
                 {props.date}
             </div>
 

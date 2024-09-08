@@ -127,7 +127,7 @@ function Enneagram() {
                     <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
                         <path d="M1 1L7 7.5L1 14" stroke="#CFCFCF" stroke-width="1.5" />
                     </svg>
-                    <div className=' text-[#CFCFCF]'>Ugur Saýla</div>
+                    <div className=' text-[#CFCFCF]'>{t('test')}</div>
                 </div>
             </div>
             {view === 'start' &&
@@ -135,14 +135,13 @@ function Enneagram() {
                     <div className="container">
                         <div className="w-8/12 mx-auto text-center ">
                             <div className='font-semibold text-2xl  mx-auto'>
-
-                                Ugur Saýlamak Üçin Siziň Şahsyýetiňiziň Ýeterlilik Derejesini Barlamak Üçin Test Tabşyryň
+                                {t('enneagram1')}
                             </div>
                             <div className='text-[#B4B4B4] text-md w-1/2 mx-auto mt-3'>
-                                Siziň beren ballaryňyz boýunça size iň ýakyn şahsyýet görnüşi anyklanar
+                            {t('enneagram2')}
                             </div>
                             <img src={center} className='mx-auto mt-10' alt="" />
-                            <div className='bg-[#1E88E5] rounded-full p-3 cursor-pointer text-white w-max mx-auto' onClick={() => setView('test')} >Teste Başla</div>
+                            <div className='bg-[#1E88E5] rounded-full p-3 cursor-pointer text-white w-max mx-auto' onClick={() => setView('test')} >{t('enneagram3')}</div>
                         </div>
                     </div>
                     <img src={left} className='absolute left-0 top-1 w-[10%]' alt="" />
@@ -159,7 +158,7 @@ function Enneagram() {
                             {index + 1}. {cats[index]?.title}
                         </div>
                         <div className='text-[#B4B4B4]  w-2/3 text-md my-6'>
-                            Aşakdakylardan siziň şahsyýetiňize tanadýan iň ýakyn göterimi saýlaň
+                            {t('enneagram4')}
                         </div>
                         <div className="grid gap-2 mt-10 grid-cols-5">
                             <div onClick={() => setAnswer(1)} className={`${answer === 1 && 'border border-2 border-[#1E88E5]'} w-full bg-[#FFE5E5] cursor-pointer rounded-s-[25px] rounded-e-[10px] flex justify-center items-center flex-col  aspect-square`}><svg xmlns="http://www.w3.org/2000/svg" width="47" height="46" viewBox="0 0 37 36" fill="none">
@@ -214,7 +213,7 @@ function Enneagram() {
                                 selectAnswer()
                             }
 
-                        }} >{index == cats?.length - 1 ? 'Ugrat' : 'Dowam et'}</div>
+                        }} >{index == cats?.length - 1 ? t('enneagram7') : t('enneagram5')}</div>
                         {/* <div className="flex my-10  gap-2 items-center justify-center">
                             <div className='w-8 h-8 rounded-lg  flex items-center justify-center bg-[#F1F9FF] text-[#1E88E5]'>1</div>
                             <div className='w-8 h-8 rounded-lg  flex items-center justify-center bg-[#F5F5F5] text-[#000]'>2</div>
@@ -235,20 +234,25 @@ function Enneagram() {
                     <div className="container">
                         <div className="w-8/12 mx-auto  ">
                             <div className='font-semibold mt-10 w-2/3    text-2xl '>
-                                Siziň beren ballaryňyz boýunça anyklanylan şahsyýet
+                            {t('enneagram6')}
                             </div>
 
                             <div className='my-10 flex flex-col gap-3' >
                                 {results?.all_enneagram.sort((a, b) => b.percentage - a.percentage).map((result) => {
                                     return (
-                                        <div className='rounded-lg flex justify-between items-center p-2.5 font-medium bg-[#F5F5F5]'>
-                                            <span>{result?.type}</span>
-                                            <span>{result?.percentage}%</span>
+                                        <div className='rounded-[20px]  p-4  bg-[#F5F5F5]'>
+                                            <div className='flex justify-between font-medium items-center'>
+                                                <span>{result?.type}</span>
+                                                <span>{result?.percentage}%</span>
+                                            </div>
+                                            <div className='mt-10 text-darkColor'>
+                                                {result?.explanation}
+                                            </div>
                                         </div>
                                     )
                                 })}
                             </div>
-                            <div className='font-semibold mt-10 w-2/3    text-2xl '>
+                            {/* <div className='font-semibold mt-10 w-2/3    text-2xl '>
                                 Siziň beren ballaryňyz boýunça anyklanylan şahsyýet
                             </div>
                             <div className='flex flex-col my-10 gap-3 '>
@@ -259,7 +263,7 @@ function Enneagram() {
                                         </div>
                                     )
                                 })}
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>

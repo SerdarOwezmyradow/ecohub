@@ -4,6 +4,8 @@ import { NavLink, useParams } from 'react-router-dom'
 import axiosInstance from '../axios';
 import { useTranslation } from 'react-i18next';
 import baseUrl from '../baseUrl';
+import { motion } from 'framer-motion';
+
 
 function Newsletters() {
     const { t, i18n } = useTranslation();
@@ -30,6 +32,12 @@ function Newsletters() {
     useEffect(() => {
         getCats()
     }, [i18n.language, id])
+
+    const slideVariant = {
+        hidden: { opacity: 0, y: 100 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+    };
+
     return (
         <div className='container mt-20'>
             <div className="flex font-semibold items-center justify-between w-full">
@@ -41,7 +49,12 @@ function Newsletters() {
                     </svg>
                 </div>
             </div>
-            <div className="grid mt-5 grid-cols-3 gap-4">
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={slideVariant}
+                className="grid mt-5 grid-cols-3 gap-4">
                 {cats?.map((cat) => {
                     return (
                         <NavLink to={`/topic/${cat.id}`}>
@@ -51,7 +64,7 @@ function Newsletters() {
                     )
                 })}
 
-            </div>
+            </motion.div>
         </div>
     )
 }

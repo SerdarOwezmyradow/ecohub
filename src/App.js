@@ -26,12 +26,20 @@ function App() {
   const { t, i18n } = useTranslation();
 
   const location = useLocation();
+
+  useEffect(() => {
+    // Change language to 'tk' if not already set
+    // if (!i18n.language || i18n.language === 'cimode') {
+      i18n.changeLanguage('tk');
+    // }
+  }, [i18n]);
+
   useEffect(() => {
     // const scrollToTop = () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'auto' // Optional: smooth scrolling behavior
-      });
+    window.scrollTo({
+      top: 0,
+      behavior: 'auto' // Optional: smooth scrolling behavior
+    });
     // };
     // Scroll to the top when the route changes
     // window.addEventListener('hashchange', scrollToTop);

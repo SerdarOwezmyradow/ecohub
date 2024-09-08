@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import StickyNav from './StickyNav'
 import { NavLink } from 'react-router-dom'
+import logo from '../../images/logoyear.png'
 
 function Navbar() {
     const date = new Date();
     const [currentdate, setDate] = useState()
     useEffect(() => {
-
-        let day = date.getDate();
-        let month = date.getMonth() + 1;
+        const date = new Date(); // Ensure date is initialized
+        let day = String(date.getDate()).padStart(2, '0');
+        let month = String(date.getMonth() + 1).padStart(2, '0');
         let year = date.getFullYear();
-        let currentDate = `${day}.${month}.${year}`;
-        setDate(currentDate)
-    }, [])
+        let formattedDate = `${day}.${month}.${year}`;
+        setDate(formattedDate);
+    }, []);
 
 
     // This arrangement can be altered based on how we want the date's format to appear.
@@ -20,8 +21,8 @@ function Navbar() {
     return (
         <div className=' bg-primaryColor z-20 relative text-white'>
 
-            <div className=' container pt-8   flex justify-between items-end pb-3'>
-                <NavLink to={`/`} className='line-clamp-2 text-start w-1/3 font-[500] uppercase '>
+            <div className=' container pt-3   flex justify-between items-center '>
+                <NavLink to={`/`} className='line-clamp-2 text-start w-1/3 text-[14px] font-[500] uppercase '>
                     Türkmenistanyň
                     <br />
                     Ýaşlar Syýasaty
@@ -52,13 +53,19 @@ function Navbar() {
                         <path d="M140.37 18.2841C139.532 18.128 138.667 18.2016 137.87 18.4966C136.866 18.864 136 19.5183 135.383 20.374V19.1773C135.383 18.9933 135.309 18.8169 135.175 18.6868C135.042 18.5567 134.861 18.4836 134.673 18.4836H132.2C132.011 18.4836 131.831 18.5567 131.698 18.6868C131.564 18.8169 131.489 18.9933 131.489 19.1773V32.3411C131.489 32.5251 131.564 32.7015 131.698 32.8316C131.831 32.9617 132.011 33.0348 132.2 33.0348H134.673C134.861 33.0348 135.042 32.9617 135.175 32.8316C135.309 32.7015 135.383 32.5251 135.383 32.3411V24.8834C135.349 24.3172 135.484 23.7535 135.772 23.2609C136.06 22.7682 136.488 22.3679 137.004 22.1084C137.964 21.6293 139.072 21.518 140.112 21.7962C140.217 21.8219 140.327 21.8238 140.433 21.8018C140.54 21.7798 140.639 21.7345 140.725 21.6693C140.81 21.6041 140.88 21.5208 140.927 21.4256C140.975 21.3304 141 21.2258 141 21.1198V18.9519C140.992 18.786 140.924 18.6281 140.809 18.506C140.694 18.3839 140.538 18.3053 140.37 18.2841Z" fill="white" />
                     </svg>
                 </NavLink >
-                <div className='line-clamp-2 text-end w-1/3 flex flex-col font-[500] capitalize '>
+                <div className='line-clamp-2 text-end w-1/3 text-[14px] flex items-center justify-end gap-3 font-[500] capitalize '>
                     <div>
-                        {currentdate}
-                    </div>
-                    <div className='uppercase'>
 
-                        Aşgabat/ Türkmenistan
+                        <div>
+                            {currentdate}
+                        </div>
+                        <div className='uppercase'>
+
+                            Aşgabat/ Türkmenistan
+                        </div>
+                    </div>
+                    <div className='bg-white rounded-full aspect-square w-max p-0.5 flex items-center justify-center'>
+                        <img src={logo} className='w-12 h-12 aspect-square' alt="" />
                     </div>
                 </div>
             </div>

@@ -7,6 +7,8 @@ import axiosInstance from '../axios'
 import { useTranslation } from 'react-i18next'
 import baseUrl from '../baseUrl'
 import LazyImage from './LazyImage'
+import { motion } from 'framer-motion';
+
 
 function News() {
 
@@ -39,11 +41,27 @@ function News() {
         const timer = setTimeout(() => {
             // Change the state after 1 second
             setPost((prevIndex) => (prevIndex === cats?.posts.slice(0, 4)?.length - 1 ? 0 : prevIndex + 1))
-        }, 10000);
+        }, 3000);
 
         // Clear the timer to avoid memory leaks
         return () => clearTimeout(timer);
     }, [post]);
+
+
+    const slideVariant = {
+        hidden: { opacity: 0, y: 100 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+    };
+
+    const leftSideVariants = {
+        hidden: { opacity: 0, x: -100 }, // Starts hidden and to the left
+        visible: { opacity: 1, x: 0, transition: { duration: 0.8 } } // Animates to visible and in position
+    };
+
+    const rightSideVariants = {
+        hidden: { opacity: 0, x: 100 }, // Starts hidden and to the right
+        visible: { opacity: 1, x: 0, transition: { duration: 0.8 } } // Animates to visible and in position
+    };
 
     return (
         <div className='container  mt-20'>
@@ -53,7 +71,12 @@ function News() {
             </div>
 
             <div className='flex aspect-[9/4] p-0  w-full mt-10 items-center'>
-                <div className='w-1/3 pe-3 snap-mandatory snap-y  snap-y overflow-y-scroll h-full'>
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={leftSideVariants}
+                    className='w-1/3 pe-3 snap-mandatory snap-y  snap-y overflow-y-scroll h-full'>
                     {cats?.posts?.slice(0, 4)?.map((cat, index) => {
                         return (
 
@@ -66,11 +89,13 @@ function News() {
                         )
                     })}
 
-
-
-
-                </div>
-                <div className='w-2/3 parent_image h-full flex justify-center items-center bg-[#E1E1E1] overflow-hidden relative '>
+                </motion.div>
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={rightSideVariants}
+                    className='w-2/3 parent_image h-full flex justify-center items-center bg-[#E1E1E1] overflow-hidden relative '>
                     <NavLink to={`/topic/${cats?.posts[post]?.id}`}>
                         {cats?.posts[post]?.image ?
                             <LazyImage src={`${baseUrl}/storage/upload/post/images/${cats?.posts[post]?.image}`} className='w-full imageee transition-transform duration-300 transform hover:scale-110  h-full object-cover' alt={cats?.posts[post]?.title} />
@@ -87,11 +112,16 @@ function News() {
                             {cats?.posts[post]?.title}
                         </div>
                     </NavLink>
-                </div>
+                </motion.div>
 
             </div>
 
-            <div className="grid grid-cols-3 mt-5 gap-3">
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={slideVariant}
+                className="grid grid-cols-3 mt-5 gap-3">
                 {cats?.posts?.slice(4, 7).map((cat) => {
                     return (
                         <NavLink to={`/topic/${cat.id}`} key={cat.id}>
@@ -99,11 +129,11 @@ function News() {
                         </NavLink>
                     )
                 })}
-            </div>
+            </motion.div>
 
             <div className='flex mt-20 gap-5 '>
                 <Divider showleft={true} />
-                <NavLink to={`/news`} className='bg-goldColor px-5 p-3 text-white text-nowrap'>Doly Gör</NavLink>
+                <NavLink to={`/news`} className='bg-goldColor px-5 p-3 text-white w-max nowrap'>Doly Gör</NavLink>
                 <Divider showright={true} />
             </div>
         </div>

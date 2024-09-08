@@ -132,7 +132,7 @@ function NewsPage() {
                     <div>
 
                         {cats?.length > 0 ?
-                            <div className="grid grid-cols-4 mt-5 gap-3">
+                            <div className="grid grid-cols-4 mt-5 gap-8">
 
                                 {cats?.map((cat) => {
                                     return (

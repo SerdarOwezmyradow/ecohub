@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import { useTranslation } from 'react-i18next';
 
 function MapContent(props) {
     const { isOpen, title, content, onClick, phone, leader, adress } = props;
+    const { t } = useTranslation();
 
     return (
         <div>
@@ -33,13 +35,13 @@ function MapContent(props) {
             >
                 <div className='w-1/2 flex flex-col gap-4'>
                     <div className='flex flex-col '>
-                        <span className='text-[#B4B4B4]'>Leader</span>
+                        <span className='text-[#B4B4B4]'>{t('lider')}</span>
                         <div>
                             {leader}
                         </div>
                     </div>
                     <div className='flex flex-col '>
-                        <span className='text-[#B4B4B4]'>Address</span>
+                        <span className='text-[#B4B4B4]'>{t('adress')}</span>
                         <div>
                             {adress}
                         </div>
@@ -48,7 +50,7 @@ function MapContent(props) {
                 <div className='w-1/2 flex items-start gap-3'>
 
                     <div className='w-1/2'>
-                        <span className='text-[#B4B4B4]'>Telefon</span>
+                        <span className='text-[#B4B4B4]'>{t('contact')}</span>
                         <div className='flex flex-col '>
                             {phone?.map((phon) => {
                                 return (
@@ -60,7 +62,7 @@ function MapContent(props) {
                         </div>
                     </div>
                     <div className='w-1/2'>
-                        <div className={` ${props.image ? '' : 'hidden' } w-18 aspect-square rounded-xl overflow-hidden bg-[#EEEEEE]`}>
+                        <div className={` ${props.image ? '' : 'hidden'} w-18 aspect-square rounded-xl overflow-hidden bg-[#EEEEEE]`}>
                             <img src={props.image} className='object-cover h-full w-full' alt="" />
                         </div>
                     </div>

@@ -32,7 +32,7 @@ function Footer() {
         <div className=' bg-primaryColor '>
             <div className="container text-white py-10">
                 <div className="flex">
-                    <div className="w-3/5 flex ">
+                    <div className="w-1/2 flex ">
                         <ul className='grid grid-rows-4 w-1/2   grid-flow-col items-left  font-[500]'>
                             {
                                 cats?.map((cat) => {
@@ -100,7 +100,7 @@ function Footer() {
                             </NavLink >
                         </ul> */}
                     </div>
-                    <div className="w-2/5">
+                    <div className="w-1/2">
                         <div className="flex items-center justify-between ">
                             <div className=" flex flex-col gap-3">
                                 <span className='text-[#FFFFFF]  opacity-50 text-xs'>Habarlaşmak Üçin</span>
@@ -123,24 +123,24 @@ function Footer() {
                             <div className='flex justify-center  bg-white  items-center'>
                                 <span className='text-[#C5C5C5] p-3 text-xs font-[500]'>Email</span>
                                 <input className='w-2/3 h-full outline-none text-xs text-darkColor' type="text" name="" id="" />
-                                <span className='text-primaryColor p-3 text-xs cursor-pointer font-[500]'>Goşul</span>
+                                <span className='text-primaryColor p-3 text-xs cursor-pointer font-[500]'>{t('join')}</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <hr className='w-full border-[1px] my-10 border-white' />
                 <div className="flex text-sm">
-                    <div className="w-3/5">
+                    <div className="w-1/2">
                         <div>Türkmenistanyň Ýaşlar Syýasaty</div>
                     </div>
-                    <div className="w-2/5 flex items-center justify-between">
+                    <div className="w-1/2 flex items-center justify-between">
                         <div className='flex items-center gap-1 cursor-pointer'>
-                            <span>Türkmenistanyň Ýaşlar Baradaky Kanuny</span>
+                            <a href='https://education.gov.tm/media/AboutFiles/yaslar-barada-dowlet-syyasaty-hakynda_b8zDcZL.pdf'>Türkmenistanyň Ýaşlar Baradaky Kanuny</a>
                             <svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 9 9" fill="none">
                                 <path d="M1 1H8M8 1L1 8M8 1V8" stroke="white" stroke-linejoin="round" />
                             </svg>
                         </div>
-                        <div>© 2024</div>
+                        <div>© 2024 {t('rights')}</div>
                     </div>
                 </div>
             </div>

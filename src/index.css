@@ -24,13 +24,31 @@ body {
     /* height: 200vh; */
 }
 .innerHtml img{
-    width: 100% !important;
-    height: auto !important;
+    /* width: 100% !important; */
+    /* margin: auto !important; */
+    @apply mx-auto h-auto max-w-max flex
+    /* max-width: max-content !important; */
+    /* height: auto !important; */
 }
 .innerHtml p{
-    @apply text-xl
+    @apply text-xl  text-[16px] leading-5 
 }
-
+.uppercase{
+    text-transform: uppercase;
+}
+.innerHtml a {
+    color: #184CD3;
+}
+.innerHtml .image {
+    /* width: 100px; */
+    margin: auto;
+}
+.databg{
+    opacity: 1 !important;
+}
+.nowrap{
+    white-space: nowrap
+}
 .parent_image:hover .imageee{
     transition: .3s;
     transform: scale(1.1);
