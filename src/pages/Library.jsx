@@ -1,14 +1,34 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import image from '../images/fairytale.png'
 import image1 from '../images/book.png'
 import { useTranslation } from 'react-i18next';
+import baseUrl from '../baseUrl';
+import axiosInstance from '../axios';
 
 function Library() {
     const { t, i18n } = useTranslation();
+    const [cats, setCats] = useState(null)
 
+    const getCats = async () => {
+        try {
+            // isLoading(true)
+            const response = await axiosInstance.get(`${baseUrl}api/multimedia/40`);
+
+            console.log('library ', response.data);
+            setCats(response?.data)
+            // isLoading(false)]
+
+        } catch (error) {
+            console.error('Error fetching categories:', error);
+        }
+    }
+
+    useEffect(() => {
+        getCats()
+    }, [i18n.language])
     return (
         <div className='overflow-x-hidden mb-20 font-semibold'>
             <div className='flex container items-center my-10 gap-3'>

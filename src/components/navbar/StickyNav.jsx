@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 
 import baseUrl from '../../baseUrl';
 import SlidingText from './SlidingText';
+import { div } from 'framer-motion/client';
 // import tm from '../../images/tm.png'
 // import ru from '../../images/ru.png'
 // import en from '../../images/en.png'
@@ -192,17 +193,22 @@ function StickyNav() {
         console.log('data', data);
     }
 
-    const Steaky = () => {
+    const Steaky = (show) => {
         return (
             <>
                 {data?.children?.length > 0 && data?.id !== 4 && (
                     <div onMouseLeave={() => setData()} className={`absolute font-[500] border text-[14px] border-[#E1E1E1] rounded-[1px] w-36 p-2 z-20 shadow-lg  bg-white text-black`}>
                         {/* <div className='flex container gap-3 flex-wrap flex-col'> */}
                         <div className='flex flex-col gap-1.5'>
-                            <NavLink className={`cursor-pointer hover:opacity-[50%]`} to={data?.type === 'news' ? '/news' : data?.id === 2 ? `/topic/yaslar/${data?.id}` : `/topics/${data?.id}`}>
-                                {data?.label}
-                            </NavLink>
-                            <hr className='border-t-[#e1e1e1] w-full' />
+                            {!data?.id == 40 && (
+                                <div>
+                                    <NavLink className={`cursor-pointer hover:opacity-[50%]`} to={data?.type === 'news' ? '/news' : data?.id === 2 ? `/topic/yaslar/${data?.id}` : `/topics/${data?.id}`}>
+                                        {data?.label}
+                                    </NavLink>
+                                    <hr className='border-t-[#e1e1e1] w-full' />
+                                </div>
+                            )
+                            }
                             {data?.children?.map((cat, index) => {
                                 switch (cat?.type) {
                                     case 'vacancy':
@@ -219,6 +225,16 @@ function StickyNav() {
                                         return (
                                             <>
                                                 <NavLink to={`/questions`} className={`${location.pathname === '/questions' ? 'opacity-[50%]' : ''} hover:opacity-[50%] cursor-pointer  `} key={cat?.id}>
+                                                    {cat?.label}
+                                                </NavLink>
+                                                {index !== data?.children?.length - 1 && <hr className='border-t-[#e1e1e1] w-full' />}
+
+                                            </>
+                                        );
+                                    case 'book':
+                                        return (
+                                            <>
+                                                <NavLink to={`/library`} className={`${location.pathname === '/library' ? 'opacity-[50%]' : ''} hover:opacity-[50%] cursor-pointer  `} key={cat?.id}>
                                                     {cat?.label}
                                                 </NavLink>
                                                 {index !== data?.children?.length - 1 && <hr className='border-t-[#e1e1e1] w-full' />}
@@ -375,10 +391,27 @@ function StickyNav() {
                                                     >
                                                         <div className={`${ids == cat?.id || (location.pathname === `/news` && cat?.type === 'news') ? 'opacity-[50%]' : ''} hover:opacity-[50%]`} >{cat?.label}</div>
                                                         {howeredIndex === index && (
-                                                            <Steaky />
+                                                            <Steaky show={true} />
                                                         )}
                                                     </li>
                                                 );
+                                            case 'standart':
+                                                if (cat?.posts_count == 0) {
+
+                                                    return (
+                                                        <li
+                                                            className={` cursor-pointer relative  p-1 xl:text-xl font-[500] text-[16px]`}
+                                                            key={cat.id}
+                                                            value={cat?.label}
+                                                            onMouseEnter={() => ContentOnHover(cat, index)}
+                                                        >
+                                                            <div className={`${ids == cat?.id || (location.pathname === `/news` && cat?.type === 'news') ? 'opacity-[50%]' : ''} hover:opacity-[50%]`} >{cat?.label}</div>
+                                                            {howeredIndex === index && (
+                                                                <Steaky show={false} />
+                                                            )}
+                                                        </li>
+                                                    );
+                                                }
 
                                             default:
                                                 if (cat?.posts_count > 0) {
@@ -392,7 +425,7 @@ function StickyNav() {
                                                         >
                                                             <div className={`${ids == cat?.id ? 'opacity-[50%]' : ''} hover:opacity-[50%]`} >{cat?.label}</div>
                                                             {howeredIndex === index && (
-                                                                <Steaky />
+                                                                <Steaky show={true} />
                                                             )}
                                                         </NavLink>
                                                     );

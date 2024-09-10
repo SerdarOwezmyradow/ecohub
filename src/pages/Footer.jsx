@@ -8,6 +8,7 @@ import axiosInstance from '../axios';
 function Footer() {
     const { t, i18n } = useTranslation();
     const [cats, setCats] = useState(null)
+    const [email, setEmail] = useState(null)
 
     const location = useLocation()
 
@@ -23,6 +24,37 @@ function Footer() {
 
         } catch (error) {
             console.error('Error fetching categories:', error);
+        }
+    }
+
+    const [isValid, setIsValid] = useState(true);
+
+    const isValidEmail = (email) => {
+        // Basic email validation regex
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
+    };
+
+    const handleEmailChange = (e) => {
+        const value = e.target.value;
+        setEmail(value);
+        setIsValid(isValidEmail(value));
+    };
+
+    const Subscribe = async () => {
+        try {
+            if (!email) {
+                return
+            }
+            const response = await axiosInstance.post(`${baseUrl}api/subscribe/`, {
+                email: email
+            });
+            if(response?.data?.success){
+                setEmail(null)
+            }
+            console.log(response.data.success, 'subscribe')
+        } catch (error) {
+
         }
     }
     useEffect(() => {
@@ -83,7 +115,7 @@ function Footer() {
                                 })
 
                             }
-                            <NavLink to={ `/library`} className={` cursor-pointer flex items-center  font-[500] max-h-max hover:opacity-[50%] p-1  text-nowrap xl:text-xl`}   >
+                            <NavLink to={`/library`} className={` cursor-pointer flex items-center  font-[500] max-h-max hover:opacity-[50%] p-1  text-nowrap xl:text-xl`}   >
                                 {t('library')}
                             </NavLink>
                         </ul>
@@ -120,10 +152,20 @@ function Footer() {
                         </div>
                         <div className='text-left flex flex-col gap-2 w-2/3 mt-20'>
                             <span className='text-[#FFFFFF]  opacity-50 text-xs'>Bildirişlerden Habardar Bol</span>
-                            <div className='flex justify-center  bg-white  items-center'>
+                            <div className='flex justify-between bg-white items-center'>
                                 <span className='text-[#C5C5C5] p-3 text-xs font-[500]'>Email</span>
-                                <input className='w-2/3 h-full outline-none text-xs text-darkColor' type="text" name="" id="" />
-                                <span className='text-primaryColor p-3 text-xs cursor-pointer font-[500]'>{t('join')}</span>
+                                <input
+                                    value={email}
+                                    onChange={handleEmailChange}
+                                    className={`w-2/3 h-full outline-none grow text-xs ${isValid ? 'text-darkColor' : 'text-red-500'}`}
+                                    type="email"
+                                    placeholder="Enter your email"
+                                />
+                                <span
+                                    onClick={Subscribe}
+                                    className={`text-primaryColor p-3 text-xs cursor-pointer font-[500] ${isValid ? '' : 'cursor-not-allowed'}`}>
+                                    {t('join')}
+                                </span>
                             </div>
                         </div>
                     </div>

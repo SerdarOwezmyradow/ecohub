@@ -23,7 +23,7 @@ function Home() {
                 {/* <Categories/> */}
                 <Newsletters />
                 {/* <Multimedia/> */}
-                {/* <Gallery /> */}
+                <Gallery />
             
             {/* <About /> */}
             {/* <Courses /> */}

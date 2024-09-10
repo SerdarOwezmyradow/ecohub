@@ -18,6 +18,7 @@ import { useEffect } from "react";
 import Project from "./pages/Project";
 import { useTranslation } from "react-i18next";
 import Enneagram from "./pages/Enneagram";
+import ScrollToTop from "./components/ScrollToTop";
 // import ScrollToTopOnRouteChange from "./components/ScrollToTopOnRouteChange";
 
 
@@ -82,7 +83,7 @@ function App() {
             {/* <NewsPage /> */}
           </Routes>
         </div>
-
+        <ScrollToTop/>
         {/* </Router> */}
         <Footer />
         {/* </div> */}
